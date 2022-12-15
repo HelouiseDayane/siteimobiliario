@@ -1,8 +1,17 @@
-<?php
+<?php 
+require_once('conexao.php');
+$senha = '123';
+$senha_crip = md5($senha);
 
+//VERIFICAR SE EXISTE UM USUÁRIO ADMINISTRADOR CRIADO NO BANCO
+$query = $pdo->query("SELECT * FROM usuario");
+$res = $query->fetchAll(PDO::FETCH_ASSOC);
+if(@count($res) == 0){
+	//CRIAR UM USUÁRIO ADMINISTRADOR CASO NÃO EXISTA NENHUM USUÁRIO
+	$pdo->query("INSERT INTO usuario SET usuario_nome = 'Helouise',  usuario_email = '$email_sistema', usuario_senha = '$senha_crip'");
+
+	}
 ?>
-
-
 <!doctype html>
 <html lang="pt-br">
   <head>
@@ -37,18 +46,18 @@
           <div class="row justify-content-center">
             <div class="col-md-8">
               <div class="mb-4">
-              <h3>Sign In</h3>
-              <p class="mb-4">Lorem ipsum dolor sit amet elit. Sapiente sit aut eos consectetur adipisicing.</p>
+              <h3>Entrar</h3>
+              <p class="mb-4">Acesso restrito</p>
             </div>
-            <form action="#" method="post">
+            <form action="autenticar.php" method="post">
               <div class="form-group first">
                 <label for="username">Usuario (Email)</label>
-                <input type="text" class="form-control" id="usuario">
+                <input type="text" class="form-control" id="usuario" name="usuario">
 
               </div>
               <div class="form-group last mb-4">
                 <label for="password">Senha</label>
-                <input type="password" class="form-control" id="senha">
+                <input type="password" class="form-control" id="senha" name="senha" >
                 
               </div>
               
@@ -59,6 +68,8 @@
                 </label>
                 <span class="ml-auto"><a href="#" class="forgot-pass">Esqueceu a senha</a></span> 
               </div>
+
+        
 
               <input type="submit" value="Acessar" class="btn btn-block btn-primary">
 
