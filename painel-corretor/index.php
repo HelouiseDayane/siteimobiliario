@@ -2,7 +2,7 @@
 require_once('../conexao.php');
 require_once('verificar.php');
 
-$usuario_id = $_SESSION['usuario_id'];
+$id_usuario = $_SESSION['id'];
 
 if(@$_GET['pagina'] != ""){
 	$menu = $_GET['pagina'];
@@ -12,10 +12,13 @@ if(@$_GET['pagina'] != ""){
 
 
 //RECUPERAR DADOS DO USUÁRIO
-//**$query = $pdo->query("SELECT * FROM usuario where usuario_id = '$usuario_id'");
-//$res = $query->fetchAll(PDO::FETCH_ASSOC);
-//$usuario_nome = $res[0]['usuario_nome'];
-//$usuario_email = $res[0]['usuario_email']; 
+$query = $pdo->query("SELECT * FROM usuario where id = '$id_usuario'");
+$res = $query->fetchAll(PDO::FETCH_ASSOC);
+$nome_usuario = $res[0]['nome'];
+$email_usuario = $res[0]['email'];
+$nivel_usuario = $res[0]['nivel'];
+$foto_usuario = $res[0]['foto'];
+$senha_usuario = $res[0]['senha'];
 
  ?>
 <!DOCTYPE HTML>
@@ -137,7 +140,7 @@ if(@$_GET['pagina'] != ""){
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             </button>
-            <h1><a class="navbar-brand" href="index.php"><span class="fa fa-book"></span> Corretor Imobiliário<span class="dashboard_text"></span></a></h1>
+            <h1><a class="navbar-brand" href="index.php"><span class="fa fa-dashboard"></span> Area do Corretor<span class="dashboard_text"></span></a></h1>
           </div>
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="sidebar-menu">
@@ -147,17 +150,20 @@ if(@$_GET['pagina'] != ""){
                 <i class="fa fa-home"></i> <span>Home</span>
                 </a>
               </li>
-			  <li class="treeview <?php echo $ocultar ?>">
+			  <li class="treeview ">
                 <a href="#">
-                <i class="fa fa-users"></i>
-                <span>Cadastros</span>
+                <i class="fa fa-house"></i>
+                <span>Cadastro</span>
                 <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                  <li><a href="index.php?pagina=imoveis"><i class="fa fa-angle-right"></i> Imoveis</a></li>
-                  <li><a href="index.php?pagina=alunos"><i class="fa fa-angle-right"></i> Usuários</a></li>
+                  <li><a href="index.php?pagina=alunos"><i class="fa fa-angle-right"></i> Imoveis</a></li>
+                  <li><a href="index.php?pagina=tipoimovel"><i class="fa fa-angle-right"></i> Tipos</a></li>
+                  <li><a href="index.php?pagina=administradores"><i class="fa fa-angle-right"></i> Bairros</a></li>
+                  <li><a href="index.php?pagina=usuarios"><i class="fa fa-angle-right"></i> Usuários</a></li>
                 </ul>
               </li>
+             
             </ul>
           </div>
           <!-- /.navbar-collapse -->
@@ -172,60 +178,7 @@ if(@$_GET['pagina'] != ""){
 				<!--toggle button start-->
 				<button id="showLeftPush"><i class="fa fa-bars"></i></button>
 				<!--toggle button end-->
-				<div class="profile_details_left"><!--notifications of menu start -->
-					<ul class="nofitications-dropdown">
-						
-						<li class="dropdown head-dpdn">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-bell"></i><span class="badge blue">4</span></a>
-							<ul class="dropdown-menu">
-								<li>
-									<div class="notification_header">
-										<h3>You have 3 new notification</h3>
-									</div>
-								</li>
-								<li><a href="#">
-									<div class="user_img"><img src="images/4.jpg" alt=""></div>
-								   <div class="notification_desc">
-									<p>Lorem ipsum dolor amet</p>
-									<p><span>1 hour ago</span></p>
-									</div>
-								  <div class="clearfix"></div>	
-								 </a></li>
-								 <li class="odd"><a href="#">
-									<div class="user_img"><img src="images/1.jpg" alt=""></div>
-								   <div class="notification_desc">
-									<p>Lorem ipsum dolor amet </p>
-									<p><span>1 hour ago</span></p>
-									</div>
-								   <div class="clearfix"></div>	
-								 </a></li>
-								 <li><a href="#">
-									<div class="user_img"><img src="images/3.jpg" alt=""></div>
-								   <div class="notification_desc">
-									<p>Lorem ipsum dolor amet </p>
-									<p><span>1 hour ago</span></p>
-									</div>
-								   <div class="clearfix"></div>	
-								 </a></li>
-								<li><a href="#">
-								   <div class="user_img"><img src="images/2.jpg" alt=""></div>
-								   <div class="notification_desc">
-									<p>Lorem ipsum dolor amet </p>
-									<p><span>1 hour ago</span></p>
-									</div>
-								   <div class="clearfix"></div>	
-								</a></li>
-								 <li>
-									<div class="notification_bottom">
-										<a href="#">See all notifications</a>
-									</div> 
-								</li>
-							</ul>
-						</li>	
-						
-					</ul>
-					<div class="clearfix"> </div>
-				</div>
+				
 				<!--notification menu end -->
 				<div class="clearfix"> </div>
 			</div>
@@ -237,10 +190,10 @@ if(@$_GET['pagina'] != ""){
 						<li class="dropdown profile_details_drop">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
 								<div class="profile_img">	
-									
+									<span class="prfil-img"><img src="img/perfil/<?php echo $foto_usuario ?>" alt="" width="50px" height="50px"> </span> 
 									<div class="user-name">
-										<!--<p><?php echo $usuario_nome ?></p> -->
-										
+										<p><?php echo $nome_usuario ?></p>
+										<span><?php echo $nivel_usuario ?></span>
 									</div>
 									<i class="fa fa-angle-down lnr"></i>
 									<i class="fa fa-angle-up lnr"></i>
@@ -269,7 +222,7 @@ if(@$_GET['pagina'] != ""){
 		<div id="page-wrapper">
 			<div class="main-page">
 			<?php 
-				require_once('crud-corretor/'.$menu.'.php');
+				require_once('pagina/'.$menu.'.php');
 			 ?>
 				
 			</div>
@@ -762,25 +715,3 @@ if(@$_GET['pagina'] != ""){
 <script type="text/javascript" src="../js/mascaras.js"></script>
 		<!-- Ajax para funcionar Mascaras JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script> 
-
-
-<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-
-
-
-	<style type="text/css">
-		.select2-selection__rendered {
-			line-height: 36px !important;
-			font-size:16px !important;
-			color:#666666 !important;
-
-		}
-
-		.select2-selection {
-			height: 36px !important;
-			font-size:16px !important;
-			color:#666666 !important;
-
-		}
-	</style>  

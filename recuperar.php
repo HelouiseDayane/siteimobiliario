@@ -4,7 +4,7 @@ require_once("conexao.php");
 $email = $_POST['recuperar'];
 
 
-$query = $pdo->prepare("SELECT * FROM usuario where usuario = :email ");
+$query = $pdo->prepare("SELECT * FROM usuario where usuario_email = :email ");
 $query->bindValue(":email", "$email");
 $query->execute();
 $res = $query->fetchAll(PDO::FETCH_ASSOC);
