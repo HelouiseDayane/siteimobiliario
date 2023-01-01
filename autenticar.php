@@ -9,27 +9,45 @@ $cache_expire = session_cache_expire();
 @session_start();
 
 require_once('conexao.php');
+echo "<script>console.log('aqui esta sendo validado')</script>";
 
-$usuario = $_POST['usuario'];
-$senha = $_POST['senha'];
-$senha_crip = md5($senha);
 
-$query = $pdo->prepare("SELECT * FROM usuario where usuario_email = :usuario_email and usuario_senha = :usuario_senha ");
-$query->bindValue(":usuario_email", "$usuario");
-$query->bindValue(":usuario_senha", "$senha_crip");
-$query->execute();
-$res = $query->fetchAll(PDO::FETCH_ASSOC);
-if(@count($res) > 0){
 
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && 
+    !empty($_POST['email']) &&
+    !empty($_POST['senha'])) {
+
+        echo "<script>console.log('Metodo POST recebido!')</script>"; 
+
+    $email = $_POST['email'];
+    $senha = $_POST['senha'];
+    $senha_crip = md5($senha);
+
+
+    $query = $pdo->prepare("SELECT * FROM usuario where email = :email and senha = :senha ");
+    $query->bindValue(":email", "$email");
+    $query->bindValue(":senha", "$senha_crip");
+    $query->execute();
+    $res = $query->fetchAll(PDO::FETCH_ASSOC);
+    // echo @count($res); exit();
+    if(@count($res) > 0){
+
+    $_SESSION['id'] = $res[0]['id'];
     $_SESSION['nivel'] = $res[0]['nivel'];
-	$_SESSION['usuario_nome'] = $res[0]['usuario_nome'];
-    
+        $_SESSION['nome'] = $res[0]['nome'];
+    $_SESSION['email'] = $res[0]['email'];
+
         echo "<script>window.location='painel-corretor'</script>";
-   
+    
 
+    }
+    else{
+        
+        echo "<script>window.alert('Dados Incorretos!')</script>";
+        echo "<script>window.location='index.php'</script>";
+        
+    }
 }else{
-	echo "<script>window.alert('Dados Incorretos!')</script>";
-	echo "<script>window.location='index.php'</script>";
-}
-
+    echo "<script>console.log('nenhum formulario POST foi enviado')</script>";
+} 
  ?>

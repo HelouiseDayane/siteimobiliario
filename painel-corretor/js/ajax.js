@@ -4,7 +4,7 @@ $(document).ready(function() {
 
 function listar(){
     $.ajax({
-        url: 'paginas/' + pag + "/listar.php",
+        url: 'pagina/' + pag + "/listar.php",
         method: 'POST',
         data: $('#form').serialize(),
         dataType: "html",
@@ -20,7 +20,7 @@ function inserir(){
     $('#mensagem').text('');
     $('#tituloModal').text('Inserir Registro');
     $('#modalForm').modal('show');
-    limparCampos();
+    
 }
 
 
@@ -30,7 +30,7 @@ $("#form").submit(function () {
 	var formData = new FormData(this);
 
 	$.ajax({
-		url: 'paginas/' + pag + "/inserir.php",
+		url: 'pagina/' + pag + "/inserir.php",
 		type: 'POST',
 		data: formData,
 
