@@ -1,10 +1,10 @@
 <?php 
 require_once("../../../conexao.php");
-$tabela = 'alunos';
+$tabela = 'bairros';
 
-$nome = $_POST['nome'];
-$email = $_POST['email'];
-$telefone = $_POST['telefone'];
+$nome = $_POST['titulo'];
+$tipo = $_POST['imoveis_tipo'];
+$telefone = $_POST['imoveis'];
 $cpf = $_POST['cpf'];
 $endereco = $_POST['endereco'];
 $cidade = $_POST['cidade'];
@@ -12,8 +12,6 @@ $estado = $_POST['estado'];
 $pais = $_POST['pais'];
 $id = $_POST['id'];
 
-$senha = '123';
-$senha_crip = md5($senha);
 
 //validar email duplicado
 $query = $pdo->query("SELECT * FROM $tabela where email = '$email'");
