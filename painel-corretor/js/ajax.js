@@ -61,7 +61,7 @@ $("#form").submit(function () {
 
 function excluir(id){
     $.ajax({
-        url: 'paginas/' + pag + "/excluir.php",
+        url: 'pagina/' + pag + "/excluir.php",
         method: 'POST',
         data: {id},
         dataType: "text",

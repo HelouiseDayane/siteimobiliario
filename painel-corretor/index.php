@@ -157,9 +157,9 @@ $senha_usuario = $res[0]['senha'];
                 <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                  <li><a href="index.php?pagina=alunos"><i class="fa fa-angle-right"></i> Imoveis</a></li>
+                  <li><a href="index.php?pagina=imoveis"><i class="fa fa-angle-right"></i> Imoveis</a></li>
                   <li><a href="index.php?pagina=tipoimovel"><i class="fa fa-angle-right"></i> Tipos</a></li>
-                  <li><a href="index.php?pagina=administradores"><i class="fa fa-angle-right"></i> Bairros</a></li>
+                  <li><a href="index.php?pagina=bairros"><i class="fa fa-angle-right"></i> Bairros</a></li>
                   <li><a href="index.php?pagina=usuarios"><i class="fa fa-angle-right"></i> Usuários</a></li>
                 </ul>
               </li>
