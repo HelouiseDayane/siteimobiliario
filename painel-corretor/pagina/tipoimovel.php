@@ -101,7 +101,7 @@ if(@$_SESSION['nivel'] != 'Administrador'){
 						</div>
 						<div class="col-md-6">							
 							<span><b>Padrão: </b></span>
-							<span id="Padrão_mostrar"></span>
+							<span id="padrao_mostrar"></span>
 						</div>
 					</div>
 
