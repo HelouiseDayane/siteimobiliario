@@ -6,7 +6,7 @@ echo <<<HTML
 <small>
 HTML;
 
-$query = $pdo->query("SELECT imoveis.titulo tit, imoveis.imoveis_bairro , imoveis.imoveis_tipo, imoveis.padrao pad, imoveis.qtd_quartos qtd, imoveis.valor val, bairros.nome bai,cidades.nome cid,imoveis.descricao descri, tipos.tipo_imoveis tip
+$query = $pdo->query("SELECT imoveis.id id, imoveis.titulo tit, imoveis.imoveis_bairro , imoveis.imoveis_tipo tipo_id, imoveis.padrao pad, imoveis.qtd_quartos qtd, imoveis.valor val, bairros.nome bai,bairros.id bairro_id, tipos.id tipo_id, cidades.id cidade_id, cidades.nome cid,imoveis.descricao descri, tipos.tipo_imoveis tip
  FROM $tabela
  inner join tipos on tipos.id = imoveis.imoveis_tipo 
  inner join bairros on bairros.id  = imoveis.imoveis_bairro
@@ -43,8 +43,9 @@ for($i=0; $i < $total_reg; $i++){
 	$quartos = $res[$i]['qtd'];
 	$valor = $res[$i]['val'];
 	$descricao = $res[$i]['descri'];
-	$tipo_id = $res[$i]['imoveis.imoveis_tipo'];
-
+	$tipo_id = $res[$i]['tipo_id'];
+	$cidade_id = $res[$i]['cidade_id'];
+	$bairro_id = $res[$i]['bairro_id'];
 
 
 echo <<<HTML
