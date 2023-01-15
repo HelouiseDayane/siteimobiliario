@@ -1,38 +1,27 @@
 <?php 
 require_once("../../../conexao.php");
-$tabela = 'bairros';
+$tabela = 'imoveis';
 
-$nome = $_POST['titulo'];
-$tipo = $_POST['imoveis_tipo'];
-$telefone = $_POST['imoveis'];
-$cpf = $_POST['cpf'];
-$endereco = $_POST['endereco'];
+$titulo = $_POST['titulo'];
+$imoveis_tipo = $_POST['imoveis_tipo'];
+$padrao = $_POST['padrao'];
+$bairro = $_POST['imoveis_bairro'];
+$valor = $_POST['valor'];
+$qtd_quartos = $_POST['qtd_quartos'];
+$descricao = $_POST['descricao'];
 $cidade = $_POST['cidade'];
-$estado = $_POST['estado'];
-$pais = $_POST['pais'];
 $id = $_POST['id'];
 
 
-//validar email duplicado
-$query = $pdo->query("SELECT * FROM $tabela where email = '$email'");
+//validar imovel duplicado
+$query = $pdo->query("SELECT * FROM $tabela where titulo = '$titulo'");
 $res = $query->fetchAll(PDO::FETCH_ASSOC);
 $total_reg = @count($res);
 if($total_reg > 0 and $res[0]['id'] != $id){
-	echo 'Email já Cadastrado, escolha Outro!';
+	echo 'Título já Cadastrado, escolha Outro!';
 	exit();
 }
-
-
-//validar cpf duplicado
-$query = $pdo->query("SELECT * FROM $tabela where cpf = '$cpf'");
-$res = $query->fetchAll(PDO::FETCH_ASSOC);
-$total_reg = @count($res);
-if($total_reg > 0 and $res[0]['id'] != $id){
-	echo 'CPF já Cadastrado, escolha Outro!';
-	exit();
-}
-
-
+/*
 $query = $pdo->query("SELECT * FROM $tabela where id = '$id'");
 $res = $query->fetchAll(PDO::FETCH_ASSOC);
 $total_reg = @count($res);
@@ -43,7 +32,7 @@ if($total_reg > 0){
 }
 
 
-//SCRIPT PARA SUBIR FOTO NO SERVIDOR
+SCRIPT PARA SUBIR FOTO NO SERVIDOR
 $nome_img = date('d-m-Y H:i:s') .'-'.@$_FILES['foto']['name'];
 $nome_img = preg_replace('/[ :]+/' , '-' , $nome_img);
 
@@ -68,47 +57,31 @@ if(@$_FILES['foto']['name'] != ""){
 		exit();
 	}
 }
-
+*/
 
 if($id == ""){
 
-	$query = $pdo->prepare("INSERT INTO $tabela SET nome = :nome, email = :email, cpf = :cpf, telefone = :telefone, endereco = :endereco,  cidade = :cidade, estado = :estado, pais = :pais, foto = '$foto', ativo = 'Sim', data = curDate()");
-$query->bindValue(":nome", "$nome");
-$query->bindValue(":email", "$email");
-$query->bindValue(":telefone", "$telefone");
-$query->bindValue(":cpf", "$cpf");
-$query->bindValue(":endereco", "$endereco");
-$query->bindValue(":cidade", "$cidade");
-$query->bindValue(":estado", "$estado");
-$query->bindValue(":pais", "$pais");
-$query->execute();
-$ult_id = $pdo->lastInsertId();
-
-$query = $pdo->prepare("INSERT INTO usuarios SET nome = :nome, usuario = :email, senha = '$senha', cpf = :cpf, senha_crip = '$senha_crip', nivel = 'Aluno',  foto = '$foto', id_pessoa = '$ult_id', ativo = 'Sim', data = curDate()");
-
-$query->bindValue(":nome", "$nome");
-$query->bindValue(":email", "$email");
-$query->bindValue(":cpf", "$cpf");
+	$query = $pdo->prepare("INSERT INTO $tabela SET titulo = :titulo, imoveis_tipo = :imoveis_tipo, padrao = :padrao, imoveis_bairro = :bairro, valor = :valor,  qtd_quartos = :qtd_quartos,  descricao = :descricao, cidade_id = :cidade_id");
+	$query->bindValue(":titulo", "$titulo");
+	$query->bindValue(":imoveis_tipo", "$imoveis_tipo");
+	$query->bindValue(":padrao", "$padrao");
+	$query->bindValue(":bairro", "$bairro");
+	$query->bindValue(":valor", "$valor");
+	$query->bindValue(":qtd_quartos", "$qtd_quartos");
+	$query->bindValue(":descricao", "$descricao");
+	$query->bindValue(":cidade_id", "$cidade");
 $query->execute();
 
 }else{
-	$query = $pdo->prepare("UPDATE $tabela SET nome = :nome, email = :email, cpf = :cpf, telefone = :telefone, endereco = :endereco,  cidade = :cidade, estado = :estado, pais = :pais, foto = '$foto' WHERE id = '$id'");
-$query->bindValue(":nome", "$nome");
-$query->bindValue(":email", "$email");
-$query->bindValue(":telefone", "$telefone");
-$query->bindValue(":cpf", "$cpf");
-$query->bindValue(":endereco", "$endereco");
-$query->bindValue(":cidade", "$cidade");
-$query->bindValue(":estado", "$estado");
-$query->bindValue(":pais", "$pais");
-$query->execute();
-$ult_id = $pdo->lastInsertId();
-
-$query = $pdo->prepare("UPDATE usuarios SET nome = :nome, usuario = :email, cpf = :cpf, foto = '$foto' WHERE id_pessoa = '$id' and nivel = 'Aluno'");
-
-$query->bindValue(":nome", "$nome");
-$query->bindValue(":email", "$email");
-$query->bindValue(":cpf", "$cpf");
+	$query = $pdo->prepare("UPDATE $tabela SET titulo = :titulo, imoveis_tipo = :imoveis_tipo, padrao = :padrao, imoveis_bairro = :bairro, valor = :valor,  qtd_quartos = :qtd_quartos,  descricao = :descricao, cidade_id = :cidade_id WHERE id = '$id'");
+	$query->bindValue(":titulo", "$titulo");
+	$query->bindValue(":imoveis_tipo", "$imoveis_tipo");
+	$query->bindValue(":padrao", "$padrao");
+	$query->bindValue(":bairro", "$bairro");
+	$query->bindValue(":valor", "$valor");
+	$query->bindValue(":qtd_quartos", "$qtd_quartos");
+	$query->bindValue(":descricao", "$descricao");
+	$query->bindValue(":cidade_id", "$cidade");
 $query->execute();
 }
 

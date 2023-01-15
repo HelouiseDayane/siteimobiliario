@@ -160,7 +160,7 @@ $senha_usuario = $res[0]['senha'];
                   <li><a href="index.php?pagina=imoveis"><i class="fa fa-angle-right"></i> Imoveis</a></li>
                   <li><a href="index.php?pagina=tipoimovel"><i class="fa fa-angle-right"></i> Tipos</a></li>
                   <li><a href="index.php?pagina=bairros"><i class="fa fa-angle-right"></i> Bairros</a></li>
-                  <li><a href="index.php?pagina=usuarios"><i class="fa fa-angle-right"></i> Usuários</a></li>
+                  <li><a href="index.php?pagina=cidades"><i class="fa fa-angle-right"></i> Cidade</a></li>
                 </ul>
               </li>
              

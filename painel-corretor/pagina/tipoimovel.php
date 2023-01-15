@@ -42,16 +42,6 @@ if(@$_SESSION['nivel'] != 'Administrador'){
 							</div>						
 						</div>
 
-						<div class="col-md-6">						
-							<div class="form-group"> 
-								<label>Padrão</label> 
-								<input type="text" class="form-control" name="padrao" id="padrao" placeholder="alto, baixo, medio"> 
-							</div>						
-						</div>		
-
-
-
-
 						</div>		
 					
 
@@ -99,10 +89,7 @@ if(@$_SESSION['nivel'] != 'Administrador'){
 							<span><b>Tipo: </b></span>
 							<span id="tipo_mostrar"></span>							
 						</div>
-						<div class="col-md-6">							
-							<span><b>Padrão: </b></span>
-							<span id="padrao_mostrar"></span>
-						</div>
+					
 					</div>
 
 

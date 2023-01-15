@@ -6,10 +6,11 @@ echo <<<HTML
 <small>
 HTML;
 
-$query = $pdo->query("SELECT imoveis.titulo, imoveis.imoveis_bairro, imoveis.imoveis_tipo, tipos.tipo_imoveis, tipos.padrao_imoveis, bairros.nome, imoveis.qtd_quartos, imoveis.valor, imoveis.descricao
+$query = $pdo->query("SELECT imoveis.titulo tit, imoveis.imoveis_bairro , imoveis.imoveis_tipo, imoveis.padrao pad, imoveis.qtd_quartos qtd, imoveis.valor val, bairros.nome bai,cidades.nome cid,imoveis.descricao descri, tipos.tipo_imoveis tip
  FROM $tabela
  inner join tipos on tipos.id = imoveis.imoveis_tipo 
  inner join bairros on bairros.id  = imoveis.imoveis_bairro
+ inner join cidades on cidades.id = imoveis.cidade_id
 ORDER BY imoveis.id desc");
 $res = $query->fetchAll(PDO::FETCH_ASSOC);
 $total_reg = @count($res);
@@ -18,11 +19,11 @@ echo <<<HTML
 	<table class="table table-hover" id="tabela">
 	<thead> 
 	<tr> 
-	<th>Nome</th>
 	<th class="esc">Titulo</th> 
 	<th class="esc">Tipo</th> 
 	<th class="esc">Padrao</th> 	
-	<th class="esc">Bairro</th>	
+	<th class="esc">Bairro</th>
+	<th class="esc">Cidade</th>	
 	<th class="">Quartos</th>	
 	<th class="">Valor</th>	
 	<th>Ações</th>
@@ -34,35 +35,34 @@ HTML;
 for($i=0; $i < $total_reg; $i++){
 	foreach ($res[$i] as $key => $value){}
 	$id = $res[$i]['id'];
-	$titulo = $res[$i]['imoveis.titulo'];
-	$tipos = $res[$i]['tipos.tipo_imoveis'];
-	$padrao = $res[$i]['tipos.padrao_imoveis'];
-	$bairro = $res[$i]['bairros.nome'];
-	$quartos = $res[$i]['imoveis.qtd_quartos'];
-	$valor = $res[$i]['imoveis.valor'];
-	$descricao = $res[$i]['imoveis_descricao'];
-	$imoveis_id = $res[$i]['imoveis.imoveis_bairro'];
+	$titulo = $res[$i]['tit'];
+	$tipos = $res[$i]['tip'];
+	$padrao = $res[$i]['pad'];
+	$bairro = $res[$i]['bai'];
+	$cidade = $res[$i]['cid'];
+	$quartos = $res[$i]['qtd'];
+	$valor = $res[$i]['val'];
+	$descricao = $res[$i]['descri'];
 	$tipo_id = $res[$i]['imoveis.imoveis_tipo'];
 
 
 
 echo <<<HTML
-<tr class="{$classe_linha}"> 
+<tr> 
 		<td>
 		{$titulo}	
 		</td> 
-		<td>
-		{$tipos}	
-		</td> 
-		<td class="esc">{$padrao}</td>		
+		<td class="esc">{$padrao}</td>	
+		<td class="esc">{$tipos}</td>		
 		<td class="esc">{$bairro}</td>
+		<td class="esc">{$cidade}</td>
 		<td class="esc">{$quartos}</td>
 		<td class="esc">{$valor}</td>
 		
 		<td>
-		<big><a href="#" onclick="editar('{$id}', '{$titulo}', '{$tipo_id}','{$bairro_id}','{$quarto}','{$valor}','{$descricao}')" title="Editar Dados"><i class="fa fa-edit text-primary"></i></a></big>
+		<big><a href="#" onclick="editar('{$id}', '{$titulo}', '{$tipos}','{$bairro}','{$cidade}','{$quartos}','{$valor}','{$descricao}')" title="Editar Dados"><i class="fa fa-edit text-primary"></i></a></big>
 
-		<big><a href="#" onclick="mostrar( '{$titulo}', '{$tipo_id}','{$bairro_id}','{$quarto}','{$valor}','{$descricao}')" title="Ver Dados"><i class="fa fa-info-circle text-secondary"></i></a></big>
+		<big><a href="#" onclick="mostrar( '{$titulo}', '{$tipos}','{$bairro}','{$cidade}','{$quartos}','{$valor}','{$descricao}')" title="Ver Dados"><i class="fa fa-info-circle text-secondary"></i></a></big>
 
 
 

@@ -19,16 +19,14 @@ if($total_reg > 0 and $res[0]['id'] != $id){
 
 if($id == ""){
 
-	$query = $pdo->prepare("INSERT INTO $tabela SET tipo_imoveis = :tipo_imoveis, padrao_imoveis = :padrao");
+	$query = $pdo->prepare("INSERT INTO $tabela SET tipo_imoveis = :tipo_imoveis");
 $query->bindValue(":tipo_imoveis", "$tipo_imoveis");
-$query->bindValue(":padrao", "$padrao");
 $query->execute();
 
 
 }else{
-	$query = $pdo->prepare("UPDATE $tabela SET tipo_imoveis = :tipo_imoveis, padrao_imoveis = :padrao WHERE id = '$id'");
+	$query = $pdo->prepare("UPDATE $tabela SET tipo_imoveis = :tipo_imoveis WHERE id = '$id'");
 	$query->bindValue(":tipo_imoveis", "$tipo_imoveis");
-	$query->bindValue(":padrao", "$padrao");
 $query->execute();
 
 

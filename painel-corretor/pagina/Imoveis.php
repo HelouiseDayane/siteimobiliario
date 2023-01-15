@@ -36,14 +36,14 @@ if(@$_SESSION['nivel'] != 'Administrador'){
 				<div class="modal-body">
 
 					<div class="row">
-						<div class="col-md-4">						
+						<div class="col-md-6">						
 							<div class="form-group"> 
 								<label>Titulo</label> 
 								<input type="text" class="form-control" name="titulo" id="titulo" required> 
 							</div>						
 						</div>
 
-						<div class="col-md-4">						
+						<div class="col-md-6">						
 							<div class="form-group"> 
 							<label>Tipo</label> 
 
@@ -60,21 +60,33 @@ if(@$_SESSION['nivel'] != 'Administrador'){
 							</div>						
 						</div>
 
-
-						<div class="col-md-4">						
+						<div class="col-md-6">						
 							<div class="form-group"> 
-							<label>Padrão</label> 
-								</br>
-							<select select class="form-control" aria-label="Default select example" name="imoveis_padrao" id="imoveis_padrao">
-									<option> Selecione</option>
-							<?php								
-								$query = $pdo->query("SELECT * FROM tipos");
+							<label>Cidade</label> 
+
+							<select select class="form-control" aria-label="Default select example"  name="cidade" id="cidade" required>
+							<option> Selecione</option>
+								<?php										
+								$query = $pdo->query("SELECT * FROM cidades");
 								$tipos = $query->fetchAll(PDO::FETCH_ASSOC);
 								foreach ( $tipos as $tipo) { ?>
 								
-								
-									<option value="<?php echo $tipo['id']?>" > <?php echo $tipo['padrao_imoveis']?></option>
+									<option value="<?php echo $tipo['id']?>" > <?php echo $tipo['nome']?></option>
 									<?php } ?>
+								</select>
+							</div>						
+						</div>
+
+
+						<div class="col-md-6">						
+							<div class="form-group"> 
+							<label>Padrão</label> 
+								</br>
+							<select select class="form-control" aria-label="Default select example" name="padrao" id="padrao">
+									
+									<option> Alto</option>
+									<option> Médio</option>
+									<option> Básico</option>
 								</select>
 							</div>						
 						</div>
@@ -110,7 +122,13 @@ if(@$_SESSION['nivel'] != 'Administrador'){
 							<label>Quantidade de Quartos</label> 
 							<input type="text" class="form-control" name="qtd_quartos" id="qtd_quartos" > 
 						</div>
-					</div>		
+					</div>	
+					<div class="col-md-2">						
+							<div class="form-group"> 
+							<label for="dinheiro">Valor</label>
+								<input type="text" class="form-control" name="valor" id="valor"> 
+							</div>						
+						</div>	
 						
 
 
@@ -119,22 +137,19 @@ if(@$_SESSION['nivel'] != 'Administrador'){
 
 
 					<div class="row">
-						<div class="col-md-2">						
-							<div class="form-group"> 
-							<label for="dinheiro">Valor</label>
-								<input type="text" class="form-control" name="valor" id="valor"> 
-							</div>						
-						</div>
+						
 
-						<div class="col-md-10">						
+						<div class="col-md-12">						
 							<div class="form-group"> 
 								<label>Descricao</label> 
 								<textarea class="form-control"  name="descricao" id="descricao" placeholder="Digite descrição do imõvel" minlength="10"></textarea>
 								
 							</div>	
 
-							</div>
-					
+						</div>
+						<input type="hidden" name="id" id="id"> 
+					<small><div id="mensagem" align="center" class="mt-3"></div></small>					
+
 
 					</div>				
 								
@@ -172,117 +187,7 @@ if(@$_SESSION['nivel'] != 'Administrador'){
 			
 			<div class="modal-body">
 
-					<div class="row">
-						<div class="col-md-4">						
-							<div class="form-group"> 
-								<label>Titulo</label> 
-								<input type="text" class="form-control" name="titulo" id="titulo" required> 
-							</div>						
-						</div>
-
-						<div class="col-md-4">						
-							<div class="form-group"> 
-							<label>Tipo</label> 
-
-							<select select class="form-control" aria-label="Default select example"  name="imoveis_tipo" id="imoveis_tipo" required>
-							<option> Selecione</option>
-								<?php										
-								$query = $pdo->query("SELECT * FROM tipos");
-								$tipos = $query->fetchAll(PDO::FETCH_ASSOC);
-								foreach ( $tipos as $tipo) { ?>
-								
-									<option value="<?php echo $tipo['id']?>" > <?php echo $tipo['tipo_imoveis']?></option>
-									<?php } ?>
-								</select>
-							</div>						
-						</div>
-
-
-						<div class="col-md-4">						
-							<div class="form-group"> 
-							<label>Padrão</label> 
-								</br>
-							<select select class="form-control" aria-label="Default select example" name="imoveis_padrao" id="imoveis_padrao">
-									<option> Selecione</option>
-							<?php								
-								$query = $pdo->query("SELECT * FROM tipos");
-								$tipos = $query->fetchAll(PDO::FETCH_ASSOC);
-								foreach ( $tipos as $tipo) { ?>
-								
-								
-									<option value="<?php echo $tipo['id']?>" > <?php echo $tipo['padrao_imoveis']?></option>
-									<?php } ?>
-								</select>
-							</div>						
-						</div>
-
-
-						
-
-
-					</div>
-
-
-					<div class="row">
-						<div class="col-md-4">						
-							<div class="form-group">
-							<label>Bairro</label> 
-								</br>
-							<select select  class="form-control" aria-label="Default select example"  name="imoveis_bairro" id="imoveis_bairro">
-							<option> Selecione</option>
-							<?php
-																
-							$query = $pdo->query("SELECT * FROM bairros");
-							$bairros = $query->fetchAll(PDO::FETCH_ASSOC);
-							foreach ( $bairros as $bairro) { ?>
-								<option value="<?php echo $bairro['id']?>" > <?php echo $bairro['nome']?></option>
-								<?php } ?>
-							</select>
-							</div>						
-						</div>
-
-
-					<div class="col-md-4">
-						<div class="form-group"> 
-							<label>Quantidade de Quartos</label> 
-							<input type="text" class="form-control" name="qtd_quartos" id="qtd_quartos" > 
-						</div>
-					</div>		
-						
-
-
-					</div>
-
-
-
-					<div class="row">
-						<div class="col-md-2">						
-							<div class="form-group"> 
-							<label for="dinheiro">Valor</label>
-								<input type="text" class="form-control" name="valor" id="valor"> 
-							</div>						
-						</div>
-
-						<div class="col-md-10">						
-							<div class="form-group"> 
-								<label>Descricao</label> 
-								<textarea class="form-control"  name="descricao" id="descricao" placeholder="Digite descrição do imõvel" minlength="10"></textarea>
-								
-							</div>	
-
-							</div>
-					
-
-					</div>				
-								
-
-				</div>
-					
-								
-
-				</div>
-
-
+			</div>
 		</div>
 	</div>
 </div>
@@ -293,22 +198,4 @@ if(@$_SESSION['nivel'] != 'Administrador'){
 <script type="text/javascript">var pag = "<?=$pag?>"</script>
 <script src="js/ajax.js"></script>
 
-<script type="text/javascript">
-	function carregarImg() {
-		var target = document.getElementById('target');
-		var file = document.querySelector("#foto").files[0];
 
-		var reader = new FileReader();
-
-		reader.onloadend = function () {
-			target.src = reader.result;
-		};
-
-		if (file) {
-			reader.readAsDataURL(file);
-
-		} else {
-			target.src = "";
-		}
-	}
-</script>
