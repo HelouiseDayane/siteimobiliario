@@ -5,7 +5,7 @@ $tabela = 'imoveis';
 $titulo = $_POST['titulo'];
 $imoveis_tipo = $_POST['imoveis_tipo'];
 $padrao = $_POST['padrao'];
-$bairro = $_POST['imoveis_bairro'];
+$imoveis_bairro = $_POST['imoveis_bairro'];
 $valor = $_POST['valor'];
 $qtd_quartos = $_POST['qtd_quartos'];
 $descricao = $_POST['descricao'];
@@ -61,11 +61,11 @@ if(@$_FILES['foto']['name'] != ""){
 
 if($id == ""){
 
-	$query = $pdo->prepare("INSERT INTO $tabela SET titulo = :titulo, imoveis_tipo = :imoveis_tipo, padrao = :padrao, imoveis_bairro = :bairro, valor = :valor,  qtd_quartos = :qtd_quartos,  descricao = :descricao, cidade_id = :cidade_id");
+	$query = $pdo->prepare("INSERT INTO $tabela SET titulo = :titulo, imoveis_tipo = :imoveis_tipo, padrao = :padrao, imoveis_bairro = :imoveis_bairro, valor = :valor,  qtd_quartos = :qtd_quartos,  descricao = :descricao, cidade_id = :cidade_id");
 	$query->bindValue(":titulo", "$titulo");
 	$query->bindValue(":imoveis_tipo", "$imoveis_tipo");
 	$query->bindValue(":padrao", "$padrao");
-	$query->bindValue(":bairro", "$bairro");
+	$query->bindValue(":imoveis_bairro", "$imoveis_bairro");
 	$query->bindValue(":valor", "$valor");
 	$query->bindValue(":qtd_quartos", "$qtd_quartos");
 	$query->bindValue(":descricao", "$descricao");
@@ -73,11 +73,11 @@ if($id == ""){
 $query->execute();
 
 }else{
-	$query = $pdo->prepare("UPDATE $tabela SET titulo = :titulo, imoveis_tipo = :imoveis_tipo, padrao = :padrao, imoveis_bairro = :bairro, valor = :valor,  qtd_quartos = :qtd_quartos,  descricao = :descricao, cidade_id = :cidade_id WHERE id = '$id'");
+	$query = $pdo->prepare("UPDATE $tabela SET titulo = :titulo, imoveis_tipo = :imoveis_tipo, padrao = :padrao, imoveis_bairro = :imoveis_bairro, valor = :valor,  qtd_quartos = :qtd_quartos,  descricao = :descricao, cidade_id = :cidade_id WHERE id = '$id'");
 	$query->bindValue(":titulo", "$titulo");
 	$query->bindValue(":imoveis_tipo", "$imoveis_tipo");
 	$query->bindValue(":padrao", "$padrao");
-	$query->bindValue(":bairro", "$bairro");
+	$query->bindValue(":imoveis_bairro", "$imoveis_bairro");
 	$query->bindValue(":valor", "$valor");
 	$query->bindValue(":qtd_quartos", "$qtd_quartos");
 	$query->bindValue(":descricao", "$descricao");

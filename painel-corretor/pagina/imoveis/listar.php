@@ -6,7 +6,20 @@ echo <<<HTML
 <small>
 HTML;
 
-$query = $pdo->query("SELECT imoveis.id id, imoveis.titulo tit, imoveis.imoveis_bairro , imoveis.imoveis_tipo tipo_id, imoveis.padrao pad, imoveis.qtd_quartos qtd, imoveis.valor val, bairros.nome bai,bairros.id bairro_id, tipos.id tipo_id, cidades.id cidade_id, cidades.nome cid,imoveis.descricao descri, tipos.tipo_imoveis tip
+$query = $pdo->query("SELECT imoveis.id id, 
+imoveis.titulo tit, 
+imoveis.imoveis_bairro ,
+ imoveis.imoveis_tipo tipo_id, 
+ imoveis.padrao pad,
+ imoveis.qtd_quartos qtd,
+ imoveis.valor val,
+ imoveis.descricao descri,
+ bairros.nome bai,
+ bairros.id bairro_id,
+ tipos.id tipo_id, 
+ tipos.tipo_imoveis tip,
+ cidades.id cidade_id, 
+ cidades.nome cid
  FROM $tabela
  inner join tipos on tipos.id = imoveis.imoveis_tipo 
  inner join bairros on bairros.id  = imoveis.imoveis_bairro
@@ -61,10 +74,9 @@ echo <<<HTML
 		<td class="esc">{$valor}</td>
 		
 		<td>
-		<big><a href="#" onclick="editar('{$id}', '{$titulo}', '{$tipos}','{$bairro}','{$cidade}','{$quartos}','{$valor}','{$descricao}')" title="Editar Dados"><i class="fa fa-edit text-primary"></i></a></big>
+		<big><a href="#" onclick="editar('{$id}', '{$titulo}', '{$tipo_id}','{$bairro_id}','{$cidade_id}','{$padrao}','{$quartos}','{$valor}','{$descricao}')" title="Editar Dados"><i class="fa fa-edit text-primary"></i></a></big>
 
-		<big><a href="#" onclick="mostrar( '{$titulo}', '{$tipos}','{$bairro}','{$cidade}','{$quartos}','{$valor}','{$descricao}')" title="Ver Dados"><i class="fa fa-info-circle text-secondary"></i></a></big>
-
+	
 
 
 		<li class="dropdown head-dpdn2" style="display: inline-block;">
@@ -111,12 +123,14 @@ HTML;
 		$('#tabela_filter label input').focus();
 	} );
 
-	function editar(id, titulo, tipo_id, bairro_id, quartos, valor, descricao){
+	function editar(id, titulo, tipo_id,bairro_id, cidade_id,padrao,  quartos, valor, descricao){
 
 		$('#id').val(id);
 		$('#titulo').val(titulo);
 		$('#tipo_id').val(tipo_id);
 		$('#bairro_id').val(bairro_id);
+		$('#cidade_id').val(tipo_id);
+		$('#padrao').val(padrao);
 		$('#quartos').val(quartos);
 		$('#valor').val(valor);
 		$('#descricao').val(descricao);
@@ -126,27 +140,14 @@ HTML;
 	}
 
 
-	function mostrar(id, titulo, tipo_id, bairro_id, quartos, valor, descricao){
-		
-
-		$('#id').val(id);
-		$('#titulo_mostrar').val(titulo);
-		$('#tipo_id_mostrar').val(tipo_id);
-		$('#bairro_id_mostrar').val(bairro_id);
-		$('#quartos_mostrar').val(quartos);
-		$('#valor_mostrar').val(valor);
-		$('#descricao_mostrar').val(descricao);
-
-		$('#modalMostrar').modal('show');
-		
-	}
-
 
 	function limparCampos(){
 		$('#id').val('');
 		$('#titulo').val('');
 		$('#tipo_id').val('');
-		$('#bairro_id').val('');
+		$('#bairro').val('');
+		$('#cidade').val('');
+		$('#padrao').val('');
 		$('#descricao').val('');
 		$('#quartos').val('');
 		$('#valor').val('');		
