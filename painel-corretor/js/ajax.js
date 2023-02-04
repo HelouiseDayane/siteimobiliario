@@ -20,6 +20,7 @@ function inserir(){
     $('#mensagem').text('');
     $('#tituloModal').text('Inserir Registro');
     $('#modalForm').modal('show');
+    limparCampos();
     
 }
 
