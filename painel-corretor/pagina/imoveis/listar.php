@@ -8,18 +8,20 @@ HTML;
 
 $query = $pdo->query("SELECT imoveis.id id, 
 imoveis.titulo tit, 
-imoveis.imoveis_bairro ,
+imoveis.imoveis_bairro bairro_id,
+imoveis.cidade_id cidade_id,
  imoveis.imoveis_tipo tipo_id, 
  imoveis.padrao pad,
  imoveis.qtd_quartos qtd,
  imoveis.valor val,
  imoveis.descricao descri,
  bairros.nome bai,
- bairros.id bairro_id,
- tipos.id tipo_id, 
+ bairros.id,
+ tipos.id tipos_id, 
  tipos.tipo_imoveis tip,
- cidades.id cidade_id, 
- cidades.nome cid
+ cidades.id, 
+ cidades.nome cid,
+ imoveis.ocasiao oca
  FROM $tabela
  inner join tipos on tipos.id = imoveis.imoveis_tipo 
  inner join bairros on bairros.id  = imoveis.imoveis_bairro
@@ -38,6 +40,7 @@ echo <<<HTML
 	<th class="esc">Bairro</th>
 	<th class="esc">Cidade</th>	
 	<th class="">Quartos</th>	
+	<th class="esc">Ocasião</th>	
 	<th class="">Valor</th>	
 	<th>Ações</th>
 	</tr> 
@@ -53,7 +56,8 @@ for($i=0; $i < $total_reg; $i++){
 	$padrao = $res[$i]['pad'];
 	$bairro = $res[$i]['bai'];
 	$cidade = $res[$i]['cid'];
-	$quartos = $res[$i]['qtd'];
+	$qtd_quartos = $res[$i]['qtd'];
+	$ocasiao = $res[$i]['oca'];
 	$valor = $res[$i]['val'];
 	$descricao = $res[$i]['descri'];
 	$tipo_id = $res[$i]['tipo_id'];
@@ -70,26 +74,31 @@ echo <<<HTML
 		<td class="esc">{$tipos}</td>		
 		<td class="esc">{$bairro}</td>
 		<td class="esc">{$cidade}</td>
-		<td class="esc">{$quartos}</td>
+		<td class="esc">{$qtd_quartos}</td>
+		<td class="esc">{$ocasiao}</td>
 		<td class="esc">{$valor}</td>
 		
 		<td>
-		<big><a href="#" onclick="editar('{$id}', '{$titulo}', '{$tipo_id}','{$bairro_id}','{$cidade_id}','{$padrao}','{$quartos}','{$valor}','{$descricao}')" title="Editar Dados"><i class="fa fa-edit text-primary"></i></a></big>
+		<big><a href="#" onclick="editar('{$id}', '{$titulo}', '{$tipo_id}','{$bairro_id}','{$cidade_id}','{$padrao}','{$qtd_quartos}','{$ocasiao}','{$valor}','{$descricao}')" title="Editar Dados"><i class="fa fa-edit text-primary"></i></a></big>
 
 	
 
 
 		<li class="dropdown head-dpdn2" style="display: inline-block;">
-		<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><big><i class="fa fa-trash-o text-danger"></i></big></a>
+			<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><big><i class="fa fa-trash-o text-danger"></i></big></a>
 
-		<ul class="dropdown-menu" style="margin-left:-230px;">
-		<li>
-		<div class="notification_desc2">
-		<p>Confirmar Exclusão? <a href="#" onclick="excluir('{$id}')"><span class="text-danger">Sim</span></a></p>
-		</div>
-		</li>										
-		</ul>
+			<ul class="dropdown-menu" style="margin-left:-230px;">
+				<li>
+					<div class="notification_desc2">
+					<p>Confirmar Exclusão? <a href="#" onclick="excluir('{$id}')"><span class="text-danger">Sim</span></a></p>
+					</div>
+				</li>										
+			</ul>
 		</li>
+
+
+		
+
 		</td>
 </tr>
 HTML;
@@ -107,6 +116,8 @@ HTML;
 }
 echo <<<HTML
 </small>
+
+
 HTML;
 
 
@@ -114,6 +125,9 @@ HTML;
 
 
 <script type="text/javascript">
+
+function exibe(_img){
+document.getElementById("imagem").innerHTML = "<img src='img/imoveis/"+_img+"' onerror=\"alert('Arquivo invalido.')\">"}
 
 	$(document).ready( function () {
 		$('#tabela').DataTable({
@@ -123,15 +137,16 @@ HTML;
 		$('#tabela_filter label input').focus();
 	} );
 
-	function editar(id, titulo, tipo_id,bairro_id, cidade_id,padrao,  quartos, valor, descricao){
+	function editar(id, titulo, tipo_id,bairro_id, cidade_id,padrao,  qtd_quartos,ocasiao, valor, descricao){
 
 		$('#id').val(id);
 		$('#titulo').val(titulo);
 		$('#tipo_id').val(tipo_id);
 		$('#bairro_id').val(bairro_id);
-		$('#cidade_id').val(tipo_id);
+		$('#cidade_id').val(cidade_id);
 		$('#padrao').val(padrao);
-		$('#quartos').val(quartos);
+		$('#qtd_quartos').val(qtd_quartos);
+		$('#ocasiao').val(ocasiao);
 		$('#valor').val(valor);
 		$('#descricao').val(descricao);
 		$('#tituloModal').text('Editar Registro');
@@ -144,12 +159,13 @@ HTML;
 	function limparCampos(){
 		$('#id').val('');
 		$('#titulo').val('');
-		$('#tipo_id').val('');
+		$('#tipos').val('');
 		$('#bairro').val('');
 		$('#cidade').val('');
 		$('#padrao').val('');
 		$('#descricao').val('');
-		$('#quartos').val('');
+		$('#qtd_quartos').val('');
+		$('#ocasiao').val('');
 		$('#valor').val('');		
 	}
 

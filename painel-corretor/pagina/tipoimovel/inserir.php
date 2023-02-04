@@ -3,7 +3,6 @@ require_once("../../../conexao.php");
 $tabela = 'tipos';
 
 $tipo_imoveis = $_POST['tipoimovel'];
-$padrao = $_POST['padrao'];
 $id = $_POST['id'];
 
 

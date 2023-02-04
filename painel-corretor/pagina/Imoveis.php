@@ -32,7 +32,7 @@ if(@$_SESSION['nivel'] != 'Administrador'){
 					<span aria-hidden="true">&times;</span>
 				</button>
 			</div>
-			<form method="post" id="form">
+			<form method="post" enctype="multipart/form-data" id="form">
 				<div class="modal-body">
 
 					<div class="row">
@@ -78,11 +78,11 @@ if(@$_SESSION['nivel'] != 'Administrador'){
 						</div>
 
 
-						<div class="col-md-6">						
+						<div class="col-md-3">						
 							<div class="form-group"> 
 							<label>Padrão</label> 
 								</br>
-							<select select class="form-control" aria-label="Default select example" name="padrao" id="padrao">
+							<select select class="form-control" aria-label="Default select example" name="padrao" id="padrao" required>
 									
 									<option> Alto</option>
 									<option> Médio</option>
@@ -90,6 +90,20 @@ if(@$_SESSION['nivel'] != 'Administrador'){
 								</select>
 							</div>						
 						</div>
+
+						<div class="col-md-3">						
+							<div class="form-group"> 
+							<label>Ocasião</label> 
+								</br>
+							<select select class="form-control" aria-label="Default select example" name="ocasiao" id="ocasiao" required>
+									
+									<option> Venda</option>
+									<option> Aluguel</option>
+									<option> Temporada</option>
+								</select>
+							</div>						
+						</div>
+
 
 
 						
@@ -99,11 +113,11 @@ if(@$_SESSION['nivel'] != 'Administrador'){
 
 
 					<div class="row">
-						<div class="col-md-4">						
+						<div class="col-md-6">						
 							<div class="form-group">
 							<label>Bairro</label> 
 								</br>
-							<select select  class="form-control" aria-label="Default select example"  name="imoveis_bairro" id="imoveis_bairro">
+							<select select  class="form-control" aria-label="Default select example"  name="imoveis_bairro" id="imoveis_bairro" required>
 							<option> Selecione</option>
 							<?php
 																
@@ -120,13 +134,13 @@ if(@$_SESSION['nivel'] != 'Administrador'){
 					<div class="col-md-4">
 						<div class="form-group"> 
 							<label>Quantidade de Quartos</label> 
-							<input type="text" class="form-control" name="qtd_quartos" id="qtd_quartos" > 
+							<input type="text" class="form-control" name="qtd_quartos" id="qtd_quartos" required > 
 						</div>
 					</div>	
 					<div class="col-md-2">						
 							<div class="form-group"> 
 							<label for="dinheiro">Valor</label>
-								<input type="text" class="form-control" name="valor" id="valor"> 
+								<input type="text" class="form-control" name="valor" id="valor" required> 
 							</div>						
 						</div>	
 						
@@ -142,16 +156,30 @@ if(@$_SESSION['nivel'] != 'Administrador'){
 						<div class="col-md-12">						
 							<div class="form-group"> 
 								<label>Descricao</label> 
-								<textarea class="form-control"  name="descricao" id="descricao" placeholder="Digite descrição do imõvel" minlength="10"></textarea>
+								<textarea class="form-control"  name="descricao" id="descricao" placeholder="Digite descrição do imõvel" minlength="10" required></textarea>
 								
 							</div>	
 
 						</div>
 						<input type="hidden" name="id" id="id"> 
-					<small><div id="mensagem" align="center" class="mt-3"></div></small>					
+						<small><div id="mensagem" align="center" class="mt-3"></div></small>					
+
+
+					</div>	
+					
+					<div class="row">
+						
+
+						<div class="col-md-12">						
+							<div class="form-group"> 
+								<label>Fotos do Imovel</label> 
+								<input name="foto" type="file" required>
+							</div>	
+						</div>			
 
 
 					</div>				
+							
 								
 
 				</div>
