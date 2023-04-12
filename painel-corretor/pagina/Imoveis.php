@@ -171,9 +171,9 @@ if(@$_SESSION['nivel'] != 'Administrador'){
 						
 
 						<div class="col-md-12">						
+							<label>Fotos do Imovel</label> 
 							<div class="form-group"> 
-								<label>Fotos do Imovel</label> 
-								<input name="foto" type="file" required>
+							<input name="foto[]" type="file" required multiple="multiple">
 							</div>	
 						</div>			
 

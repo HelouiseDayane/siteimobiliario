@@ -23,8 +23,27 @@ if($total_reg > 0 and $res[0]['id'] != $id){
 	echo 'Título já Cadastrado, escolha Outro!';
 	exit();
 }
+echo "TOTAL FOTOS: ".count($foto)."\r\n";
+print_r($foto);
 
+exit();
+for($cont = 0; $cont < count($foto); $cont++){
+	
+	echo "cont:  {$cont} -";
+	//print_r($foto);
 
+	$pasta_destino = '../../imagens_imoveis/'.$foto[($cont)];
+
+	if(move_uploaded_file($foto[$cont], $pasta_destino)){
+		echo 'foto arquivada';
+	
+		
+	}else{
+		echo 'foto não arquivada';
+	}
+	
+}
+exit();
 
 
 if($id == ""){
@@ -39,7 +58,17 @@ if($id == ""){
 	$query->bindValue(":ocasiao", "$ocasiao");
 	$query->bindValue(":descricao", "$descricao");
 	$query->bindValue(":cidade_id", "$cidade");
-$query->execute();
+	$query->execute();
+	//$ult_id = $pdo->lastInsertId();
+
+
+	
+	
+	/**$query = $pdo->prepare("INSERT INTO fotos SET foto = :foto, imoveis_id = '$ult_id'");
+
+	$query->bindValue(":foto", "$foto");
+	$query->execute(); */
+
 
 }else{
 	$query = $pdo->prepare("UPDATE $tabela SET titulo = :titulo, imoveis_tipo = :imoveis_tipo, padrao = :padrao, imoveis_bairro = :imoveis_bairro, valor = :valor,  qtd_quartos = :qtd_quartos, ocasiao = :ocasiao, descricao = :descricao, cidade_id = :cidade_id WHERE id = '$id'");
