@@ -23,26 +23,27 @@ if($total_reg > 0 and $res[0]['id'] != $id){
 	echo 'Título já Cadastrado, escolha Outro!';
 	exit();
 }
-echo "TOTAL FOTOS: ".count($foto)."\r\n";
-print_r($foto);
 
-exit();
-for($cont = 0; $cont < count($foto); $cont++){
-	
-	echo "cont:  {$cont} -";
-	//print_r($foto);
 
-	$pasta_destino = '../../imagens_imoveis/'.$foto[($cont)];
 
-	if(move_uploaded_file($foto[$cont], $pasta_destino)){
-		echo 'foto arquivada';
-	
-		
+
+
+ //echo "TOTAL FOTOS: ".count($foto['tmp_name'])."\r\n"; print_r($foto); exit();
+
+
+for($cont = 0; $cont < count($foto['tmp_name']); $cont++){
+	$pasta_destino = '../../imagens_imoveis/'.$foto['name'][($cont)];
+	// echo "{$pasta_destino} ---------------------------------------------- \r\n";
+	//*
+	if(move_uploaded_file($foto['tmp_name'][($cont)], $pasta_destino)){
+		$resp =  'foto arquivada';		
 	}else{
-		echo 'foto não arquivada';
-	}
+		$erro =  'foto não arquivada';
+	}/**/
 	
 }
+if(empty($erro)){ echo "{$resp}";
+}else{ echo "{$erro}";}
 exit();
 
 
