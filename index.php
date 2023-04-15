@@ -1,3 +1,6 @@
+<?php
+require_once('conexao.php');
+?>
 <!doctype html>
 <html lang="pt-br">
   <head>
