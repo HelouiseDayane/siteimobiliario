@@ -126,8 +126,7 @@ HTML;
 
 <script type="text/javascript">
 
-function exibe(_img){
-document.getElementById("imagem").innerHTML = "<img src='img/imoveis/"+_img+"' onerror=\"alert('Arquivo invalido.')\">"}
+
 
 	$(document).ready( function () {
 		$('#tabela').DataTable({
@@ -172,4 +171,3 @@ document.getElementById("imagem").innerHTML = "<img src='img/imoveis/"+_img+"' o
 
 
 	</script>
-
