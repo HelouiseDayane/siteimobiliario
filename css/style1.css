@@ -43,6 +43,7 @@ h4,
 h5,
 h6 {
   margin: 0;
+  color: #111111;
   font-weight: 400;
   font-family: "Montserrat", sans-serif;
 }
@@ -187,6 +188,7 @@ ol {
   font-weight: 600;
   text-transform: uppercase;
   background: #ff7639;
+  border-radius: 50px;
   padding: 10px 20px;
   display: inline-block;
 }
@@ -195,7 +197,7 @@ ol {
   font-size: 14px;
   color: #ffffff;
   background: #ff7639;
-  border: none;
+  border-radius: 50px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -1487,6 +1489,7 @@ ol {
 -----------------------*/
 .footer-section {
   background: #444444;
+  margin-top: 500px;
   padding-top: 70px;
 }
 
@@ -1528,6 +1531,7 @@ ol {
   color: #ffffff;
   text-transform: uppercase;
   font-weight: 600;
+  margin-top: 70px;
   margin-bottom: 26px;
 }
 .fs-widget ul li {

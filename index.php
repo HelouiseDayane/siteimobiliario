@@ -40,14 +40,14 @@
             <a href="./index.php">
                 <img src="img/icon_Pedrosa.png" alt="">
             </a>
-        </div>
+        <!--/div>
         <div id="mobile-menu-wrap"></div>
         <div class="om-widget">
             <ul>
                 <li><i class="icon_mail_alt"></i> Aler.support@gmail.com</li>
                 <li><i class="fa fa-mobile-phone"></i> 125-711-811 <span>125-668-886</span></li>
-            </ul>
-            <a href="#" class="hw-btn">Submit property</a>
+            </ul-->
+            <a href="#" class="btn btn-primary btn-custom">Submit property</a>
         </div>
         <div class="om-social">
             <a href="#"><i class="fa fa-instagram"></i></a>
@@ -60,12 +60,12 @@
         <div class="hs-top">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-2">
+                    <div class="col-lg-3">
                         <div class="logo">
                             <a href="./index.php"><img src="img/logo_Pedrosa.png" alt=""></a>
                         </div>
                     </div>
-                    <div class="col-lg-10">
+                    <div class="col-lg-9">
                         <div class="ht-widget">
                             <ul>
                                 <!--li><i class="icon_mail_alt"></i> Aler.support@gmail.com</li>
@@ -412,17 +412,17 @@
                     <div class="section-title">
                         <h4>Invista no seu futuro!</h4>
                     </div>
-                    <p>Lorem Ipsum has been the industry?s standard dummy text ever since the 1500s, when an unknown
-                        printer took a galley of type and scrambled it to make a type specimen book.</p>
+                    <!--p>Lorem Ipsum has been the industry?s standard dummy text ever since the 1500s, when an unknown
+                        printer took a galley of type and scrambled it to make a type specimen book.</p-->
                 </div>
                 <div class="chooseus-features">
                     <div class="cf-item">
                         <div class="cf-pic">
-                            <img src="img/chooseus/chooseus-icon-1.png" alt="">
+                            <img src="img/chooseus/chooseus-icon-5.png" alt="">
                         </div>
                         <div class="cf-text">
                             <h5>Os Melhores Imóveis</h5>
-                            <p>We help you find a new home by offering a smart real estate.</p>
+                            
                         </div>
                     </div>
                     <!--div class="cf-item">
@@ -445,11 +445,11 @@
                     </div-->
                     <div class="cf-item">
                         <div class="cf-pic">
-                            <img src="img/chooseus/chooseus-icon-4.png" alt="">
+                            <img src="img/chooseus/chooseus-icon-6.png" alt="">
                         </div>
                         <div class="cf-text">
-                            <h5>Melhores Localizações</h5>
-                            <p>Sign up now and sell or rent your own properties</p>
+                            <h5>As Melhores Localizações</h5>
+                            
                         </div>
                     </div>
                 </div>
@@ -514,11 +514,11 @@
                     </div-->
                     
                     <!-- Final do Carrousel -->
-                </div>
+                <!--/div>
             </div>
         </div>
     </div>
-</section>
+</section-->
 <!-- Feature Property Section End -->
 
 <!-- Team Section Begin 
@@ -553,7 +553,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <!--div class="col-md-4">
                 <div class="ts-item">
                     <div class="ts-text">
                         <img src="img/team/team-2.jpg" alt="">
@@ -719,9 +719,9 @@ Categories Section End -->
     <footer class="footer-section">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4 col-md-6">
+                <div class="col-lg-3 col-md-6">
                     <div class="fs-about">
-                        <div class="fs-logo">
+                        <div class="fs-logo">  
                             <a href="#">
                                 <img src="img/logo_Pedrosa1.png" alt="">
                             </a>
@@ -729,8 +729,13 @@ Categories Section End -->
                         <div class="fs-widget">
                         <h5>Atendimento</h5>
                         </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua ut aliquip ex ea</p>
+                        <div class="om-widget">
+                        <ul>
+                        <li><i class="img/chooseus/chooseus-icon-8.png"></i> contato@pedrosaseuimovel.com</li>
+                        <li><i class="img/chooseus/chooseus-icon-7.png"></i> +55 84 98856.1986 </li>
+                        <span><a class="text-white" target="_blank" href="http://api.whatsapp.com/send?1=pt_BR&phone="><i class="fa fa-whatsapp"></i>84 98856.1986</a></span>
+                        <ul>
+                        </div>
                         <div class="fs-social">
                             <a href="#"><i class="fa fa-instagram"></i></a>
                         </div>
