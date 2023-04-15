@@ -12,7 +12,11 @@ function listar(){
         success:function(result){
             $("#listar").html(result);
             $('#mensagem-excluir').text('');
-        }
+
+            setTimeout( function(){
+                $('#tabela_paginate a[data-dt-idx=1]').click();
+            }, 500);
+        },
     });
 }
 
@@ -20,8 +24,8 @@ function inserir(){
     $('#mensagem').text('');
     $('#tituloModal').text('Inserir Registro');
     $('#modalForm').modal('show');
-    limparCampos();
-    
+    //limparCampos();
+    $('#modalForm form')[0].reset();
 }
 
 
@@ -42,8 +46,8 @@ $("#form").submit(function () {
                     $('#btn-fechar').click();
                     listar();
                 } else {
-                	$('#mensagem').addClass('text-danger')
-                    $('#mensagem').text(mensagem)
+                	$('#mensagem').addClass('text-danger');
+                    $('#mensagem').html(mensagem);
                 }
 
             },

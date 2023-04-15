@@ -21,7 +21,6 @@ if(@$_SESSION['nivel'] != 'Administrador'){
 
 
 
-
 <!-- Modal -->
 <div class="modal fade" id="modalForm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	<div class="modal-dialog modal-lg" role="document">
@@ -35,27 +34,7 @@ if(@$_SESSION['nivel'] != 'Administrador'){
 			<form method="post" enctype="multipart/form-data" id="form">
 				<div class="modal-body">
 
-						<!-- //-- -------------------------------------------------------------- -->
-						<!-- //-- --- Este cara só aparecerá em localhost (para testes) -------- -->
-						<!-- //-- -------------------------------------------------------------- -->
-						<div class="col-md-12">						
-							<div class="form-group"> 
-								<button type="bottom" class="btn btn-primary teste" style="padding:10px 20px; background-color:#666;font-weight:bold;color:#FFF;float:left; display:none;" onclick="
-								TimeLanding = new Date();
-								time = TimeLanding.getTime();
-								$('select option').attr('selected','true');
-								$('input[name=\'titulo\']').val('TITULO DE TESTE ' + time );
-								$('input[name=\'qtd_quartos\']').val('2');
-								$('input[name=\'valor\']').val('2.500');
-								$('textarea').val('Esta é uma descrição apenas para deste durante o desenvolvimento...');
-								$('input[type=\'file\'][multiple=\'multiple\']').click();
-								">TESTAR</button> <SCRIPT>let ThisHost = new URL(window.location.href).host;if(ThisHost == 'localhost'){$('.teste').css('display','block');}</SCRIPT>
-							</div>						
-						</div>
-						<div class="row">
-						<!-- //-- -------------------------------------------------------------- -->
-						<!-- //-- -------------------------------------------------------------- -->
-
+					<div class="row">
 						<div class="col-md-6">						
 							<div class="form-group"> 
 								<label>Titulo</label> 
@@ -245,5 +224,4 @@ if(@$_SESSION['nivel'] != 'Administrador'){
 
 <script type="text/javascript">var pag = "<?=$pag?>"</script>
 <script src="js/ajax.js"></script>
-
 
