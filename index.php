@@ -8,7 +8,7 @@ require_once('conexao.php');
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
    
-    <title>Aler | Template</title>
+    <title>Pedrosa Soluções Imobiliárias</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800,900&display=swap"
@@ -41,23 +41,19 @@ require_once('conexao.php');
         </div>
         <div class="logo">
             <a href="./index.php">
-                <img src="img/logo.png" alt="">
+                <img src="img/icon_Pedrosa.png" alt="">
             </a>
-        </div>
+        <!--/div>
         <div id="mobile-menu-wrap"></div>
         <div class="om-widget">
             <ul>
                 <li><i class="icon_mail_alt"></i> Aler.support@gmail.com</li>
                 <li><i class="fa fa-mobile-phone"></i> 125-711-811 <span>125-668-886</span></li>
-            </ul>
-            <a href="#" class="hw-btn">Submit property</a>
+            </ul-->
+            <a href="#" class="btn btn-primary btn-custom">Submit property</a>
         </div>
         <div class="om-social">
-            <a href="#"><i class="fa fa-facebook"></i></a>
-            <a href="#"><i class="fa fa-twitter"></i></a>
-            <a href="#"><i class="fa fa-youtube-play"></i></a>
             <a href="#"><i class="fa fa-instagram"></i></a>
-            <a href="#"><i class="fa fa-pinterest-p"></i></a>
         </div>
     </div>
     <!-- Offcanvas Menu Wrapper End -->
@@ -67,18 +63,18 @@ require_once('conexao.php');
         <div class="hs-top">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-2">
+                    <div class="col-lg-3">
                         <div class="logo">
-                            <a href="./index.php"><img src="img/logo.png" alt=""></a>
+                            <a href="./index.php"><img src="img/logo_Pedrosa.png" alt=""></a>
                         </div>
                     </div>
-                    <div class="col-lg-10">
+                    <div class="col-lg-9">
                         <div class="ht-widget">
                             <ul>
-                                <li><i class="icon_mail_alt"></i> Aler.support@gmail.com</li>
-                                <li><i class="fa fa-mobile-phone"></i> 125-711-811 <span>125-668-886</span></li>
+                                <!--li><i class="icon_mail_alt"></i> Aler.support@gmail.com</li>
+                                <li><i class="fa fa-mobile-phone"></i> 125-711-811 <span>125-668-886</span></li-->
                             </ul>
-                            <a href="login.php" class="hw-btn">Acesso</a>
+                            <a href="login.php" class="hw-btn">ADICIONAR IMÓVEL</a>
                         </div>
                     </div>
                 </div>
@@ -93,21 +89,18 @@ require_once('conexao.php');
                     <div class="col-lg-9">
                         <nav class="nav-menu">
                             <ul>
-                                <li class="active"><a href="./index.php">Inicio</a></li>
+                                <li class="active"><a href="./index.php">Home</a></li>
                                 <li><a href="#">Imóveis</a></li>
-                                  <li><a href="./sitefront/agents.php">Corretor</a></li>
-                                <li><a href="./sitefront/about.php">Sobre</a></li>
-                                <li><a href="./sitefront/contact.php">Contato</a></li>
+                                  <li><a href="./sitefront/agents.php">Sobre</a></li>
+                                <li><a href="./sitefront/about.php">Contato</a></li>
+                                <li><a href="./sitefront/contact.php">Login</a></li>
                             </ul>
                         </nav>
                     </div>
                     <div class="col-lg-3">
                         <div class="hn-social">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-youtube-play"></i></a>
+                             
                             <a href="#"><i class="fa fa-instagram"></i></a>
-                            <a href="#"><i class="fa fa-pinterest-p"></i></a>
                         </div>
                     </div>
                 </div>
@@ -288,7 +281,7 @@ require_once('conexao.php');
         <div class="row">
             <div class="col-lg-5">
                 <div class="section-title">
-                    <h4>ULTIMOS IMÓVEIS</h4>
+                    <h4>IMÓVEIS EM DESTAQUE</h4>
                 </div>
             </div>
             <div class="col-lg-7">
@@ -320,7 +313,7 @@ require_once('conexao.php');
                     </a>
                     <div class="pi-text">
                         <a title="Enviar Mensagem" href="" data-toggle="modal" data-target="#modalMensagemImovel" class="heart-icon"><span class="icon_heart_alt"></span></a>
-                        <div class="pt-price">R$ 889.0<span>/mes</span></div>
+                        <div class="pt-price">R$ 889.0<span>/mês</span></div>
                         <h5><a href="imovel-detalhes.jsp">Apartamento 3 Quartos</a></h5>
                         <p><span class="icon_pin_alt"></span> Endereço do Imóvel</p>
                         <ul>
@@ -331,13 +324,13 @@ require_once('conexao.php');
                         </ul>
                         <div class="pi-agent">
                             <div class="pa-item">
-                                <div class="pa-info">
+                                <!--div class="pa-info">
                                     <img src="img/property/posted-by/pb-1.jpg" alt="">
                                     <h6>Nome do Corretor</h6>
-                                </div>
-                                <div class="pa-text">
+                                </div-->
+                                <!--div class="pa-text">
                                     <a class="cor-verde-template-link" target="_blank" href="http://api.whatsapp.com/send?1=pt_BR&phone=5531975275084"><i class="fa fa-whatsapp"></i> (31)97527-5084 </a>
-                                </div>
+                                </div-->
                             </div>
                         </div>
                     </div>
@@ -362,19 +355,49 @@ require_once('conexao.php');
                         </ul>
                         <div class="pi-agent">
                             <div class="pa-item">
-                                <div class="pa-info">
+                                <!--div class="pa-info">
                                     <img src="img/property/posted-by/pb-1.jpg" alt="">
                                     <h6>Nome do Corretor</h6>
-                                </div>
-                                <div class="pa-text">
+                                </div-->
+                                <!--div class="pa-text">
                                     <a class="cor-verde-template-link" target="_blank" href="http://api.whatsapp.com/send?1=pt_BR&phone=5531975275084"><i class="fa fa-whatsapp"></i> (31)97527-5084 </a>
-                                </div>
+                                </div-->
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
+            <div class="col-lg-4 col-md-6 mix all house">
+                <div class="property-item">
+                    <div class="pi-pic set-bg" data-setbg="img/property/property-2.jpg">
+                        <div class="label c-red">Para Comprar</div>
+                    </div>
+                    <div class="pi-text">
+                        <a title="Enviar Mensagem" href="" data-toggle="modal" data-target="#modalMensagemImovel" class="heart-icon"><span class="icon_heart_alt"></span></a>
+                        <div class="pt-price">R$ 500.000<span></span></div>
+                        <h5><a href="#">Apartamento 3 Quartos</a></h5>
+                        <p><span class="icon_pin_alt"></span> Endereço do Imóvel</p>
+                        <ul>
+                            <li><i class="fa fa-object-group"></i> 120 m²</li>
+                            <li><i class="fa fa-bathtub"></i> 03</li>
+                            <li><i class="fa fa-bed"></i> 05</li>
+                            <li><i class="fa fa-automobile"></i> 01</li>
+                        </ul>
+                        <div class="pi-agent">
+                            <div class="pa-item">
+                                <!--div class="pa-info">
+                                    <img src="img/property/posted-by/pb-1.jpg" alt="">
+                                    <h6>Nome do Corretor</h6>
+                                </div-->
+                                <!--div class="pa-text">
+                                    <a class="cor-verde-template-link" target="_blank" href="http://api.whatsapp.com/send?1=pt_BR&phone=5531975275084"><i class="fa fa-whatsapp"></i> (31)97527-5084 </a>
+                                </div-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <!-- Fim dos Cards com os Imóveis -->   
 
@@ -384,7 +407,7 @@ require_once('conexao.php');
 <!-- Property Section End -->
 
 <!-- Chooseus Section Begin -->
-<section class="chooseus-section spad set-bg" data-setbg="img/chooseus/chooseus-bg.jpg">
+<section class="chooseus-section spad set-bg" data-setbg="img/natal.png">
     <div class="container">
         <div class="row">
             <div class="col-lg-8">
@@ -392,20 +415,20 @@ require_once('conexao.php');
                     <div class="section-title">
                         <h4>Invista no seu futuro!</h4>
                     </div>
-                    <p>Lorem Ipsum has been the industry?s standard dummy text ever since the 1500s, when an unknown
-                        printer took a galley of type and scrambled it to make a type specimen book.</p>
+                    <!--p>Lorem Ipsum has been the industry?s standard dummy text ever since the 1500s, when an unknown
+                        printer took a galley of type and scrambled it to make a type specimen book.</p-->
                 </div>
                 <div class="chooseus-features">
                     <div class="cf-item">
                         <div class="cf-pic">
-                            <img src="img/chooseus/chooseus-icon-1.png" alt="">
+                            <img src="img/chooseus/chooseus-icon-5.png" alt="">
                         </div>
                         <div class="cf-text">
                             <h5>Os Melhores Imóveis</h5>
-                            <p>We help you find a new home by offering a smart real estate.</p>
+                            
                         </div>
                     </div>
-                    <div class="cf-item">
+                    <!--div class="cf-item">
                         <div class="cf-pic">
                             <img src="img/chooseus/chooseus-icon-2.png" alt="">
                         </div>
@@ -413,8 +436,8 @@ require_once('conexao.php');
                             <h5>Sua compra Facilitada</h5>
                             <p>Millions of houses and apartments in your favourite cities</p>
                         </div>
-                    </div>
-                    <div class="cf-item">
+                    </div-->
+                    <!--div class="cf-item">
                         <div class="cf-pic">
                             <img src="img/chooseus/chooseus-icon-3.png" alt="">
                         </div>
@@ -422,14 +445,14 @@ require_once('conexao.php');
                             <h5>Corretores Especializados</h5>
                             <p>Find an agent who knows your market best</p>
                         </div>
-                    </div>
+                    </div-->
                     <div class="cf-item">
                         <div class="cf-pic">
-                            <img src="img/chooseus/chooseus-icon-4.png" alt="">
+                            <img src="img/chooseus/chooseus-icon-6.png" alt="">
                         </div>
                         <div class="cf-text">
-                            <h5>Melhores Localizações</h5>
-                            <p>Sign up now and sell or rent your own properties</p>
+                            <h5>As Melhores Localizações</h5>
+                            
                         </div>
                     </div>
                 </div>
@@ -439,7 +462,7 @@ require_once('conexao.php');
 </section>
 <!-- Chooseus Section End -->
 
-<!-- Feature Property Section Begin -->
+<!-- Feature Property Section Begin 
 <section class="feature-property-section spad">
     <div class="container">
         <div class="row">
@@ -460,9 +483,9 @@ require_once('conexao.php');
                 </div>
             </div>
             <div class="col-lg-8 p-0">
-                <div class="fp-slider owl-carousel">
+                <div class="fp-slider owl-carousel"-->
                     
-                    <!-- Inicio do Carrousel -->
+                    <!-- Inicio do Carrousel 
                     <div class="fp-item set-bg" data-setbg="img/feature-property/fp-1.jpg">
                         <div class="fp-text">
                             <h5 class="title">Casa com 4 Quartos</h5>
@@ -491,17 +514,17 @@ require_once('conexao.php');
                                 <li><i class="fa fa-automobile"></i> 01</li>
                             </ul>
                         </div>
-                    </div>
+                    </div-->
                     
                     <!-- Final do Carrousel -->
-                </div>
+                <!--/div>
             </div>
         </div>
     </div>
-</section>
+</section-->
 <!-- Feature Property Section End -->
 
-<!-- Team Section Begin -->
+<!-- Team Section Begin 
 <section class="team-section spad">
     <div class="container">
         <div class="row">
@@ -533,7 +556,7 @@ require_once('conexao.php');
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <!--div class="col-md-4">
                 <div class="ts-item">
                     <div class="ts-text">
                         <img src="img/team/team-2.jpg" alt="">
@@ -566,9 +589,9 @@ require_once('conexao.php');
         </div>
     </div>
 </section>
-<!-- Team Section End -->
+ Team Section End -->
 
-<!-- Categories Section Begin -->
+<!-- Categories Section Begin 
 <section class="categories-section">
     <div class="cs-item-list">
         <div class="cs-item set-bg" data-setbg="img/categories/cat-1.jpg">
@@ -603,10 +626,10 @@ require_once('conexao.php');
         </div>
     </div>
 </section>
-<!-- Categories Section End -->
+Categories Section End -->
 
 <!-- Testimonial Section Begin -->
-<section class="testimonial-section spad">
+<!--section class="testimonial-section spad">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -690,7 +713,7 @@ require_once('conexao.php');
             </div>
         </div>
     </div>
-</section>
+</section-->
 <!-- Testimonial Section End -->
 
     <!-- Contact Section End -->
@@ -699,62 +722,66 @@ require_once('conexao.php');
     <footer class="footer-section">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4 col-md-6">
+                <div class="col-lg-3 col-md-6">
                     <div class="fs-about">
-                        <div class="fs-logo">
+                        <div class="fs-logo">  
                             <a href="#">
-                                <img src="img/f-logo.png" alt="">
+                                <img src="img/logo_Pedrosa1.png" alt="">
                             </a>
                         </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua ut aliquip ex ea</p>
+                        <div class="fs-widget">
+                        <h5>Atendimento</h5>
+                        </div>
+                        <div class="om-widget">
+                        <ul>
+                        <li><i class="img/chooseus/chooseus-icon-8.png"></i> contato@pedrosaseuimovel.com</li>
+                        <li><i class="img/chooseus/chooseus-icon-7.png"></i> +55 84 98856.1986 </li>
+                        <span><a class="text-white" target="_blank" href="http://api.whatsapp.com/send?1=pt_BR&phone="><i class="fa fa-whatsapp"></i>84 98856.1986</a></span>
+                        <ul>
+                        </div>
                         <div class="fs-social">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-youtube-play"></i></a>
                             <a href="#"><i class="fa fa-instagram"></i></a>
-                            <a href="#"><i class="fa fa-pinterest-p"></i></a>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-2 col-sm-6">
                     <div class="fs-widget">
-                        <h5>Help</h5>
+                        <h5>Institucional</h5>
                         <ul>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Contact Support</a></li>
-                            <li><a href="#">Knowledgebase</a></li>
-                            <li><a href="#">Careers</a></li>
-                            <li><a href="#">FAQs</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-sm-6">
-                    <div class="fs-widget">
-                        <h5>Links</h5>
-                        <ul>
-                            <li><a href="#">Contact</a></li>
-                            <li><a href="#">Create Property</a></li>
-                            <li><a href="#">My Properties</a></li>
-                            <li><a href="#">Register</a></li>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Sobre</a></li>
+                            <li><a href="#">Fale Conosco</a></li>
+                            <li><a href="#">Politica de Privacidade</a></li>
                             <li><a href="#">Login</a></li>
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6">
+                <div class="col-lg-2 col-sm-6">
+                    <div class="fs-widget">
+                        <h5>Imóveis</h5>
+                        <ul>
+                            <li><a href="#">Destaques</a></li>
+                            <li><a href="#">Lançamentos</a></li>
+                            <li><a href="#">Alugar</a></li>
+                            <li><a href="#">Comprar</a></li>
+                            <li><a href="#">Adicionar Imóvel</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!--div class="col-lg-4 col-md-6">
                     <div class="fs-widget">
                         <h5>Newsletter</h5>
                         <p>Deserunt mollit anim id est laborum.</p>
                         <form action="#" class="subscribe-form">
                             <input type="text" placeholder="Email">
-                            <button type="submit" class="site-btn">Subscribe</button>
+                            <button type="submit" class="site-btn">Enviar</button>
                         </form>
-                    </div>
+                    </div-->
                 </div>
             </div>
             <div class="copyright-text">
                 <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+   Pedrosa Soluções Imobiliárias &copy;<script>document.write(new Date().getFullYear());</script> - Todos os direitos reservados. <i class="fa" aria-hidden="true"></i> Design by <a href="https://www.instagram.com/studioidearcom/" target="_blank">Studio Idear</a>
   <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
             </div>
         </div>
