@@ -25,9 +25,9 @@ SELECT
 	cidades.nome 				AS cid,
 	imoveis.ocasiao 			AS oca
  FROM $tabela
- inner join tipos on tipos.id = imoveis.imoveis_tipo 
- inner join bairros on bairros.id  = imoveis.imoveis_bairro
- inner join cidades on cidades.id = imoveis.cidade_id
+	 LEFT JOIN tipos on tipos.id = imoveis.imoveis_tipo 
+	 LEFT JOIN bairros on bairros.id  = imoveis.imoveis_bairro
+	 LEFT JOIN cidades on cidades.id = imoveis.cidade_id
 ORDER BY imoveis.id desc");
 $res = $query->fetchAll(PDO::FETCH_ASSOC);
 $total_reg = @count($res);
