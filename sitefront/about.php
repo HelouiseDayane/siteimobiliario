@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
    
-    <title>Aler | Template</title>
+    <<title>Pedrosa Soluções Imobiliárias</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800,900&display=swap"
@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="css/style1.css" type="text/css">
+    <link rel="stylesheet" href="../css/style1.css" type="text/css">
 </head>
 
 <body>
@@ -40,23 +40,13 @@
         </div>
         <div class="logo">
             <a href="./index.php">
-                <img src="img/logo.png" alt="">
+                <img src="img/icon_Pedrosa.png" alt="">
             </a>
-        </div>
-        <div id="mobile-menu-wrap"></div>
-        <div class="om-widget">
-            <ul>
-                <li><i class="icon_mail_alt"></i> Aler.support@gmail.com</li>
-                <li><i class="fa fa-mobile-phone"></i> 125-711-811 <span>125-668-886</span></li>
-            </ul>
-            <a href="#" class="hw-btn">Submit property</a>
+     
+            <a href="#" class="btn btn-primary btn-custom">Submit property</a>
         </div>
         <div class="om-social">
-            <a href="#"><i class="fa fa-facebook"></i></a>
-            <a href="#"><i class="fa fa-twitter"></i></a>
-            <a href="#"><i class="fa fa-youtube-play"></i></a>
             <a href="#"><i class="fa fa-instagram"></i></a>
-            <a href="#"><i class="fa fa-pinterest-p"></i></a>
         </div>
     </div>
     <!-- Offcanvas Menu Wrapper End -->
@@ -66,18 +56,18 @@
         <div class="hs-top">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-2">
+                    <div class="col-lg-3">
                         <div class="logo">
-                            <a href="./index.php"><img src="img/logo.png" alt=""></a>
+                            <a href="./index.php"><img src="../img/logo_Pedrosa.png" alt=""></a>
                         </div>
                     </div>
-                    <div class="col-lg-10">
+                    <div class="col-lg-9">
                         <div class="ht-widget">
                             <ul>
-                                <li><i class="icon_mail_alt"></i> Aler.support@gmail.com</li>
-                                <li><i class="fa fa-mobile-phone"></i> 125-711-811 <span>125-668-886</span></li>
+                                <!--li><i class="icon_mail_alt"></i> Aler.support@gmail.com</li>
+                                <li><i class="fa fa-mobile-phone"></i> 125-711-811 <span>125-668-886</span></li-->
                             </ul>
-                            <a href="#" class="hw-btn">Buscar Imovel</a>
+                            <a href="login.php" class="hw-btn">ADICIONAR IMÓVEL</a>
                         </div>
                     </div>
                 </div>
@@ -92,21 +82,16 @@
                     <div class="col-lg-9">
                         <nav class="nav-menu">
                             <ul>
-                                <li class="active"><a href="../index.php">Inicio</a></li>
-                                <li><a href="#">Imóveis</a></li>
-                                  <li><a href="agents.php">Corretor</a></li>
-                                <li><a href="about.php">Sobre</a></li>
-                                <li><a href="contact.php">Contato</a></li>
+                                <li class="active"><a href="../index.php">Home</a></li>
+                                <li><a href="property.php">Imóveis</a></li>
+                                <li><a href="about.php">Contato</a></li>
                             </ul>
                         </nav>
                     </div>
                     <div class="col-lg-3">
                         <div class="hn-social">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-youtube-play"></i></a>
+                             
                             <a href="#"><i class="fa fa-instagram"></i></a>
-                            <a href="#"><i class="fa fa-pinterest-p"></i></a>
                         </div>
                     </div>
                 </div>
@@ -121,10 +106,10 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumb-text">
-                        <h4>About us</h4>
+                        <h4>Predoza Soluções Imobiliárias</h4>
                         <div class="bt-option">
-                            <a href="./index.php"><i class="fa fa-home"></i> Home</a>
-                            <span>About</span>
+                            <a href="./index.php"><i class="fa fa-home"></i> Inicio</a>
+                            <span>Sobre</span>
                         </div>
                     </div>
                 </div>
@@ -140,9 +125,8 @@
                 <div class="col-lg-6">
                     <div class="about-text">
                         <div class="at-title">
-                            <h3>Welcom to Aler REAL</h3>
-                            <p>Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an
-                                unknown printer took a galley of type.</p>
+                            <h3>Bem Vindo a Pedroza Soluções Imobiliárias</h3>
+                          
                         </div>
                         <div class="at-feature">
                             <div class="af-item">
@@ -150,8 +134,7 @@
                                     <img src="img/chooseus/chooseus-icon-1.png" alt="">
                                 </div>
                                 <div class="af-text">
-                                    <h6>Find your future home</h6>
-                                    <p>We help you find a new home by offering a smart real estate.</p>
+                                    <h6>Encontre a sua futura casa</h6>
                                 </div>
                             </div>
                             <div class="af-item">
@@ -159,8 +142,8 @@
                                     <img src="img/chooseus/chooseus-icon-2.png" alt="">
                                 </div>
                                 <div class="af-text">
-                                    <h6>Experienced agents</h6>
-                                    <p>Find an agent who knows your market best</p>
+                                    <h6>Corretor Experiente</h6>
+                                    <!-- <p>Find an agent who knows your market best</p> -->
                                 </div>
                             </div>
                             <div class="af-item">
@@ -168,8 +151,8 @@
                                     <img src="img/chooseus/chooseus-icon-3.png" alt="">
                                 </div>
                                 <div class="af-text">
-                                    <h6>Buy or rent homes</h6>
-                                    <p>Millions of houses and apartments in your favourite cities</p>
+                                    <h6>Alugueis ou compra de Imóveis</h6>
+                                 
                                 </div>
                             </div>
                             <div class="af-item">
@@ -177,26 +160,20 @@
                                     <img src="img/chooseus/chooseus-icon-4.png" alt="">
                                 </div>
                                 <div class="af-text">
-                                    <h6>List your own property</h6>
-                                    <p>Sign up now and sell or rent your own properties</p>
+                                    <h6>Encontre sua futura moradia aqui</h6>
+                                    
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <div class="about-pic set-bg" data-setbg="img/about-us.jpg">
-                        <a href="https://www.youtube.com/watch?v=8EJ3zbKTWQ8" class="play-btn video-popup">
-                            <i class="fa fa-play-circle"></i>
-                        </a>
-                    </div>
-                </div>
+          
             </div>
         </div>
     </section>
     <!-- About Section End -->
 
-    <!-- Team Section Begin -->
+    <!-- Team Section Begin 
     <section class="team-section spad">
         <div class="container">
             <div class="row">
@@ -260,9 +237,9 @@
             </div>
         </div>
     </section>
-    <!-- Team Section End -->
+    Team Section End -->
 
-    <!-- Testimonial Section Begin -->
+    <!-- Testimonial Section Begin 
     <section class="testimonial-section spad">
         <div class="container">
             <div class="row">
@@ -348,7 +325,7 @@
             </div>
         </div>
     </section>
-    <!-- Testimonial Section End -->
+     Testimonial Section End -->
 
     <!-- Contact Section Begin -->
     <section class="contact-section">
@@ -356,24 +333,17 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="contact-info">
-                        <div class="ci-item">
-                            <div class="ci-icon">
-                                <i class="fa fa-map-marker"></i>
-                            </div>
-                            <div class="ci-text">
-                                <h5>Address</h5>
-                                <p>160 Pennsylvania Ave NW, Washington, Castle, PA 16101-5161</p>
-                            </div>
-                        </div>
+                      
+                        
+
                         <div class="ci-item">
                             <div class="ci-icon">
                                 <i class="fa fa-mobile"></i>
                             </div>
                             <div class="ci-text">
-                                <h5>Phone</h5>
+                                <h5>Telefone</h5>
                                 <ul>
-                                    <li>125-711-811</li>
-                                    <li>125-668-886</li>
+                                    <li>84 98856.1986</li>
                                 </ul>
                             </div>
                         </div>
@@ -382,87 +352,86 @@
                                 <i class="fa fa-headphones"></i>
                             </div>
                             <div class="ci-text">
-                                <h5>Support</h5>
-                                <p>Support.aler@gmail.com</p>
+                                <h5>Email</h5>
+                                <p>contato@pedrosaseuimovel.com</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="cs-map">
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d735515.5813275519!2d-80.41163541934742!3d43.93644386501528!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882a55bbf3de23d7%3A0x3ada5af229b47375!2sMono%2C%20ON%2C%20Canada!5e0!3m2!1sen!2sbd!4v1583262687289!5m2!1sen!2sbd"
-                height="450" style="border:0;" allowfullscreen=""></iframe>
-        </div>
+     
     </section>
     <!-- Contact Section End -->
 
-    <!-- Footer Section Begin -->
-    <footer class="footer-section">
+     <!-- Footer Section Begin -->
+     <footer class="footer-section">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4 col-md-6">
+                <div class="col-lg-3 col-md-6">
                     <div class="fs-about">
-                        <div class="fs-logo">
+                        <div class="fs-logo">  
                             <a href="#">
-                                <img src="img/f-logo.png" alt="">
+                                <img src="img/logo_Pedrosa1.png" alt="">
                             </a>
                         </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua ut aliquip ex ea</p>
+                        <div class="fs-widget">
+                        <h5>Atendimento</h5>
+                        </div>
+                        <div class="om-widget">
+                        <ul>
+                        <spam><a class="text-white" target="_blank" href="https://criarmeulink.com.br/u/1681609222"><i class="img/chooseus/chooseus-icon-8.png"></i> contato@pedrosaseuimovel.com< </a></spam>
+                    
+                        <span><a class="text-white" target="_blank" href="http://api.whatsapp.com/send?1=pt_BR&phone="><i class="fa fa-whatsapp"></i>84 98856.1986</a></span>
+                        <ul>
+                        </div>
                         <div class="fs-social">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-youtube-play"></i></a>
                             <a href="#"><i class="fa fa-instagram"></i></a>
-                            <a href="#"><i class="fa fa-pinterest-p"></i></a>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-2 col-sm-6">
                     <div class="fs-widget">
-                        <h5>Help</h5>
+                        <h5>Institucional</h5>
                         <ul>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Contact Support</a></li>
-                            <li><a href="#">Knowledgebase</a></li>
-                            <li><a href="#">Careers</a></li>
-                            <li><a href="#">FAQs</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-sm-6">
-                    <div class="fs-widget">
-                        <h5>Links</h5>
-                        <ul>
-                            <li><a href="#">Contact</a></li>
-                            <li><a href="#">Create Property</a></li>
-                            <li><a href="#">My Properties</a></li>
-                            <li><a href="#">Register</a></li>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Sobre</a></li>
+                            <li><a href="#">Fale Conosco</a></li>
+                            <li><a href="#">Politica de Privacidade</a></li>
                             <li><a href="#">Login</a></li>
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6">
+                <div class="col-lg-2 col-sm-6">
+                    <div class="fs-widget">
+                        <h5>Imóveis</h5>
+                        <ul>
+                            <li><a href="#">Destaques</a></li>
+                            <li><a href="#">Lançamentos</a></li>
+                            <li><a href="#">Alugar</a></li>
+                            <li><a href="#">Comprar</a></li>
+                            <li><a href="#">Adicionar Imóvel</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!--div class="col-lg-4 col-md-6">
                     <div class="fs-widget">
                         <h5>Newsletter</h5>
                         <p>Deserunt mollit anim id est laborum.</p>
                         <form action="#" class="subscribe-form">
                             <input type="text" placeholder="Email">
-                            <button type="submit" class="site-btn">Subscribe</button>
+                            <button type="submit" class="site-btn">Enviar</button>
                         </form>
-                    </div>
+                    </div-->
                 </div>
             </div>
             <div class="copyright-text">
                 <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+   Pedrosa Soluções Imobiliárias &copy;<script>document.write(new Date().getFullYear());</script> - Todos os direitos reservados. <i class="fa" aria-hidden="true"></i> Design by <a href="https://www.instagram.com/studioidearcom/" target="_blank">Studio Idear</a>
   <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
             </div>
         </div>
     </footer>
-    <!-- Footer Section End -->
 
     <!-- Js Plugins -->
     <script src="js/jquery-3.3.1.min.js"></script>
