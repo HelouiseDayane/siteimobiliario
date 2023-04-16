@@ -87,9 +87,9 @@ if(@$_SESSION['nivel'] != 'Administrador'){
 								</br>
 							<select select class="form-control required" aria-label="Default select example" name="padrao" id="padrao" required>
 									
-									<option> Alto</option>
-									<option> Médio</option>
-									<option> Básico</option>
+									<option> Novo</option>
+									<option> Planta</option>
+									<option> Usado</option>
 								</select>
 							</div>						
 						</div>
@@ -102,7 +102,6 @@ if(@$_SESSION['nivel'] != 'Administrador'){
 									
 									<option> Venda</option>
 									<option> Aluguel</option>
-									<option> Temporada</option>
 								</select>
 							</div>						
 						</div>
@@ -134,10 +133,32 @@ if(@$_SESSION['nivel'] != 'Administrador'){
 						</div>
 
 
-					<div class="col-md-4">
+					<div class="col-md-2">
 						<div class="form-group"> 
-							<label>Quantidade de Quartos</label> 
-							<input type="text" class="form-control" name="qtd_quartos" id="qtd_quartos" required > 
+							<label>Quartos</label> 
+								</br>
+							<select select class="form-control" aria-label="Default select example" name="qtd_quartos" id="qtd_quartos" required>
+									<option> 0</option>
+									<option> 1</option>
+									<option> 2</option>
+									<option> 3</option>
+									<option> 4</option>
+									<option> 5+</option>
+								</select>
+						</div>
+					</div>	
+					<div class="col-md-2">
+						<div class="form-group"> 
+							<label>Garagem</label> 
+								</br>
+							<select select class="form-control" aria-label="Default select example" name="garagem" id="garagem" required>
+									<option> 0</option>
+									<option> 1</option>
+									<option> 2</option>
+									<option> 3</option>
+									<option> 4</option>
+									<option> 5+</option>
+								</select>
 						</div>
 					</div>	
 					<div class="col-md-2">						

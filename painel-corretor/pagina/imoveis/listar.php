@@ -15,6 +15,7 @@ SELECT
 	imoveis.imoveis_tipo 		AS tipo_id, 
 	imoveis.padrao 				AS pad,
 	imoveis.qtd_quartos 		AS qtd,
+	imoveis.garagem   			AS garagem,
 	imoveis.valor 				AS val,
 	imoveis.descricao 			AS descri,
 	bairros.nome 				AS bai,
@@ -37,11 +38,13 @@ echo <<<HTML
 	<thead> 
 	<tr> 
 	<th class="esc">Titulo</th> 
-	<th class="esc">Tipo</th> 
-	<th class="esc">Padrao</th> 	
+	<th class="esc">Status</th> 
+	<th class="esc">Tipo</th> 	
 	<th class="esc">Bairro</th>
 	<th class="esc">Cidade</th>	
 	<th class="">Quartos</th>	
+	<th class="">Garagem</th>
+	<th class="">Garagem</th>
 	<th class="esc">Ocasião</th>	
 	<th class="">Valor</th>	
 	<th>Ações</th>
@@ -76,12 +79,13 @@ echo <<<HTML
 		<td class="esc">{$tipos}</td>		
 		<td class="esc">{$bairro}</td>
 		<td class="esc">{$cidade}</td>
+		<td class="esc">{$garagem}</td>
 		<td class="esc">{$qtd_quartos}</td>
 		<td class="esc">{$ocasiao}</td>
 		<td class="esc">{$valor}</td>
 		
 		<td>
-		<big><a href="#" onclick="editar('{$id}', '{$titulo}', '{$tipo_id}','{$bairro_id}','{$cidade_id}','{$padrao}','{$qtd_quartos}','{$ocasiao}','{$valor}','{$descricao}')" title="Editar Dados"><i class="fa fa-edit text-primary"></i></a></big>
+		<big><a href="#" onclick="editar('{$id}', '{$titulo}', '{$tipo_id}','{$bairro_id}','{$cidade_id}','{$padrao}','{$qtd_quartos}','{$ocasiao}','{$valor}','{$descricao}', '{garagem}')" title="Editar Dados"><i class="fa fa-edit text-primary"></i></a></big>
 
 	
 
@@ -138,11 +142,11 @@ HTML;
 		$('#tabela_filter label input').focus();
 	} );
 
-	function editar(id, titulo, tipo_id, bairro_id, cidade_id, padrao, qtd_quartos, ocasiao, valor, descricao){
+	function editar(id, titulo, tipo_id, bairro_id, cidade_id, padrao, qtd_quartos, ocasiao, valor, descricao, garagem){
 
 		/*
 		console.log(
-			id, titulo, tipo_id, bairro_id, cidade_id, padrao, qtd_quartos, ocasiao, valor, descricao
+			id, titulo, tipo_id, bairro_id, cidade_id, padrao, qtd_quartos, ocasiao, valor, descricao,garagem
 		);/**/
 		$('#modalForm form input[type=file]').removeAttr('required');
 		$('#modalForm form select option').removeAttr('selected');
@@ -154,6 +158,7 @@ HTML;
 		$('#modalForm form #padrao option[value='+padrao+']').attr('selected', true);
 		$('#modalForm form #ocasiao option[value='+ocasiao+']').attr('selected', true);
 		$('#modalForm form #imoveis_bairro option[value='+bairro_id+']').attr('selected', true);
+		$('#modalForm form #garagem option[value='+garagem+']').attr('selected', true);
 		$('#qtd_quartos').val(qtd_quartos);
 		$('#valor').val(valor);
 		$('#descricao').val(descricao);
@@ -173,6 +178,7 @@ HTML;
 		$('#padrao').val('');
 		$('#descricao').val('');
 		$('#qtd_quartos').val('');
+		$('#garagem').val('');
 		$('#ocasiao').val('');
 		$('#valor').val('');		
 	}

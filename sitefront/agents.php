@@ -1,4 +1,13 @@
 <?php
+
+require_once('verificar.php');
+
+
+
+if(@$_SESSION['nivel'] != 'Administrador'){
+	echo "<script>window.location='../index.php'</script>";
+	exit();
+}
 ?>
 <!doctype html>
 <html lang="pt-br">
@@ -23,7 +32,7 @@
     <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="css/style1.css" type="text/css">
+    <link rel="stylesheet" href="../css/style1.css" type="text/css">
 </head>
 
 <body>
@@ -66,18 +75,18 @@
         <div class="hs-top">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-2">
+                    <div class="col-lg-3">
                         <div class="logo">
-                            <a href="./index.php"><img src="img/logo.png" alt=""></a>
+                            <a href="./index.php"><img src="../img/logo_Pedrosa.png" alt=""></a>
                         </div>
                     </div>
-                    <div class="col-lg-10">
+                    <div class="col-lg-9">
                         <div class="ht-widget">
                             <ul>
-                                <li><i class="icon_mail_alt"></i> Aler.support@gmail.com</li>
-                                <li><i class="fa fa-mobile-phone"></i> 125-711-811 <span>125-668-886</span></li>
+                                <!--li><i class="icon_mail_alt"></i> Aler.support@gmail.com</li>
+                                <li><i class="fa fa-mobile-phone"></i> 125-711-811 <span>125-668-886</span></li-->
                             </ul>
-                            <a href="#" class="hw-btn">Buscar Imovel</a>
+                            <a href="login.php" class="hw-btn">ADICIONAR IMÓVEL</a>
                         </div>
                     </div>
                 </div>
@@ -92,21 +101,17 @@
                     <div class="col-lg-9">
                         <nav class="nav-menu">
                             <ul>
-                                <li class="active"><a href="../index.php">Inicio</a></li>
+                                <li class="active"><a href="../index.php">Home</a></li>
                                 <li><a href="#">Imóveis</a></li>
-                                  <li><a href="agents.php">Corretor</a></li>
-                                <li><a href="about.php">Sobre</a></li>
-                                <li><a href="contact.php">Contato</a></li>
+                                  <li><a href="agents.php">Sobre</a></li>
+                                <li><a href="about.php">Contato</a></li>
                             </ul>
                         </nav>
                     </div>
                     <div class="col-lg-3">
                         <div class="hn-social">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-youtube-play"></i></a>
+                             
                             <a href="#"><i class="fa fa-instagram"></i></a>
-                            <a href="#"><i class="fa fa-pinterest-p"></i></a>
                         </div>
                     </div>
                 </div>
