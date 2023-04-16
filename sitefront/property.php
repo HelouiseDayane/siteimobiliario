@@ -1,11 +1,6 @@
 <?php
-$cidade = $_GET['cidade'];
-$bairro = $_GET['bairro'];
-$ocasiao = $_GET['ocasiao'];
-$padrao = $_GET['padrao'];
-$tipos = $_GET['tipos'];
-$qtd_quartos = $_GET['qtd_quartos'];
-$garagem = $_GET['garagem'];
+require_once('conexao.php');
+
 ?>
 <!doctype html>
 <html lang="pt-br">
@@ -136,93 +131,80 @@ $garagem = $_GET['garagem'];
                 </div>
             </div>
             <div class="row">
-          <? 
-          if()
-          $query = $pdo->query("SELECT imoveis.id id, 
-            imoveis.titulo tit, 
-            imoveis.imoveis_bairro bairro_id,
-            imoveis.cidade_id cidade_id,
-            imoveis.imoveis_tipo tipo_id, 
-            imoveis.padrao pad,
-            imoveis.qtd_quartos qtd,
-            imoveis.valor valor,
-            imoveis.garagem gar,
-            imoveis.descricao descri,
-            bairros.nome bai,
-            bairros.id,
-            tipos.id tipos_id, 
-            tipos.tipo_imoveis tip,
-            cidades.id, 
-            cidades.nome cid,
-            imoveis.ocasiao oca
-            FROM $tabela
-            inner join tipos on tipos.id = imoveis.imoveis_tipo 
-            inner join bairros on bairros.id  = imoveis.imoveis_bairro
-            inner join cidades on cidades.id = imoveis.cidade_id
-            ORDER BY imoveis.id desc");
-            $res = $query->fetchAll(PDO::FETCH_ASSOC);
-            $total_reg = @count($res);
-            if($total_reg > 0)
-            for($i=0; $i < $total_reg; $i++){
-                foreach ($res[$i] as $key => $value){} 
-                $titulo = $res[$i]['tit'];
-                 $valor = $res[$i]['valor'];
-                 $bairro = $res[$i]['bai']; 
-                 $quarto = $res[$i]['qtd'] ;
-                 $garagem = $res[$i]['garagem'];  ?>
+            <?php
+            $sql = "
+            SELECT 
+               
+                imoveis.titulo 				AS tit, 
+                imoveis.padrao 				AS pad,
+                imoveis.qtd_quartos 		AS qtd,
+                imoveis.garagem      		AS garagem,
+                imoveis.valor 				AS val,
+                imoveis.descricao 			AS descri,
+                bairros.nome 				AS bai,
+                tipos.tipo_imoveis 			AS tip,
+                cidades.nome 				AS cid,
+                imoveis.ocasiao 			AS oca
+             FROM imoveis
+             inner join tipos on tipos.id = imoveis.imoveis_tipo 
+             inner join bairros on bairros.id  = imoveis.imoveis_bairro
+             inner join cidades on cidades.id = imoveis.cidade_id
+             WHERE 1=1";
+                if(!empty($_GET['cidade'])){
+                    $cidade = $_GET['cidade'];
+                    $sql.= "AND cid = '$cidade'";
+                }
+                if(!empty($_GET['bairro'])){
+                    $bairro = $_GET['bairro'];
+                    $sql.= "AND bai = '$bairro'";
+                }
+                if(!empty($_GET['ocasiao'])){
+                    $ocasiao = $_GET['ocasiao'];
+                    $sql.= "AND ocar = '$bairro'";
+                }
+                if(!empty($_GET['padrao'])){
+                    $padrao = $_GET['padrao'];
+                    $sql.= "AND pad = '$padrao'";
+                }
+                if(!empty($_GET['tipos'])){
+                    $tipos = $_GET['tipos'];
+                    $sql.= "AND tip = '$tipos'";
+                }
+                if(!empty($_GET['qtd_quartos'])){
+                    $quartos = $_GET['qtd_quartos'];
+                    $sql.= "AND qtd = '$quartos'";
+                }
+                if(!empty($_GET['garagem'])){
+                    $garagem = $_GET['garagem'];
+                    $sql.= "AND garagem = '$garagem'";
+                }
+               
+            $imoveis = $conn->query($sql);
+            $resultados = $imoveis->fetchAll(PDO::FETCH_ASSOC);
+                foreach ($resultados as $resultado){
+
+            ?>
+      
                 <div class="col-lg-4 col-md-6">
                     <div class="property-item">
-                        <div class="pi-pic set-bg">
-                      <!--  <img src='../pagina/verImg.php?itemCod=\".$cod.\"' w> -->
-                        </div>
-                            <div class="label"></div>
+                        <div class="pi-pic set-bg" data-setbg="img/property/property-2.jpg">
+                            <div class="label c-red"> <?php echo $resultado['cid']?></div>
                         </div>
                         <div class="pi-text">
                             <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
-                            <div class="pt-price">$ 289.0<span>/month</span></div>
-                            <h5><a href="#">Home in Merrick Way</a></h5>
-                            <p><span class="icon_pin_alt"></span> 3 Middle Winchendon Rd, Rindge, NH 03461</p>
+                            <div class="pt-price"> <?php echo $resultado['oca']?></div>
+                            <h5><a href="#"> <?php echo $resultado['val']?></a></h5>
+                            <p><span class="icon_pin_alt"></span> <?php echo $resultado['bai']?></p>
                             <ul>
-                                <li><i class="fa fa-object-group"></i> 2, 283</li>
-                                <li><i class="fa fa-bathtub"></i> 03</li>
-                                <li><i class="fa fa-bed"></i> 05</li>
-                                <li><i class="fa fa-automobile"></i> 01</li>
+                               
+                                <li><i class="fa fa-bed"></i>  <?php echo $resultado['qtd']?></li>
+                                <li><i class="fa fa-automobile"></i>  <?php echo $resultado['garagem']?></li>
                             </ul>
                             
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="property-item">
-                        <div class="pi-pic set-bg" data-setbg="img/property/property-2.jpg">
-                            <div class="label c-red">For rent</div>
-                        </div>
-                        <div class="pi-text">
-                            <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
-                            <div class="pt-price">$ 289.0</div>
-                            <h5><a href="#">Unimont Aurum</a></h5>
-                            <p><span class="icon_pin_alt"></span> Gut No.102, Opp. HP Petrol Pump, Karjat</p>
-                            <ul>
-                                <li><i class="fa fa-object-group"></i> 2, 283</li>
-                                <li><i class="fa fa-bathtub"></i> 03</li>
-                                <li><i class="fa fa-bed"></i> 05</li>
-                                <li><i class="fa fa-automobile"></i> 01</li>
-                            </ul>
-                            <div class="pi-agent">
-                                <div class="pa-item">
-                                    <div class="pa-info">
-                                        <img src="img/property/posted-by/pb-1.jpg" alt="">
-                                        <h6>Ashton Kutcher</h6>
-                                    </div>
-                                    <div class="pa-text">
-                                        123-455-688
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-               
+                <?php } ?>
             </div>
         </div>
     </section>

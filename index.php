@@ -186,39 +186,41 @@ require_once('conexao.php');
 <section class="search-section spad">
     <div class="container">
     
-        <div class="row">
-            <div class="col-lg-7">
+ 
+        <div class="search-form-content">
+        <form action="./sitefront/property.php" method="get" class="filter-form">
+            <div class="row">
+            <div class="col-lg-6">
                 <div class="section-title">
                     <h4>Qual imóvel está Procurando?</h4>
                 </div>
             </div>
-            <div class="col-lg-5">
+            <div class="col-lg-6">
                 <div class="change-btn">
                     <div class="cb-item">
                         <label for="cb-rent" class="active">
                             Compra
-                            <input type="radio" name="tipo_compra"id="cb-rent">
+                            <input type="radio" name="ocasiao" value="Venda"id="cb-rent">
                         </label>
                     </div>
                     <div class="cb-item">
                         <label for="cb-sale">
                             Aluguel
-                            <input type="radio" name="tipo_compra" id="cb-sale">
+                            <input type="radio" name="ocasiao" value="Aluguel" id="cb-sale">
                         </label>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="search-form-content">
-            <form action="#" class="filter-form">
-                <select class="sm-width" name="cidade" id="cidade">
+        <select  class="sm-width" aria-label="Default select example" name="cidade" id="cidade">
+              
                     <option value="">Cidade</option>
                     <?php
                                                             
                         $query = $pdo->query("SELECT * FROM cidades");
                         $cidades = $query->fetchAll(PDO::FETCH_ASSOC);
                         foreach ( $cidades as $cidade) { ?>
-                            <option value="<?php echo $cidade['id']?>" > <?php echo $cidade['nome']?></option>
+                            <option > <?php echo $cidade['nome']?></option>
                     <?php } ?>
                 </select>
                 <select class="sm-width" name="bairro" id="bairro" >
@@ -228,7 +230,7 @@ require_once('conexao.php');
                         $query = $pdo->query("SELECT * FROM bairros");
                         $bairros = $query->fetchAll(PDO::FETCH_ASSOC);
                         foreach ( $bairros as $bairro) { ?>
-                            <option value="<?php echo $bairro['id']?>" > <?php echo $bairro['nome']?></option>
+                            <option > <?php echo $bairro['nome']?></option>
                     <?php } ?>
                 </select>
                 <select class="sm-width" name="padrao" id="padrao" >
@@ -242,7 +244,7 @@ require_once('conexao.php');
                 <?php } ?>
                 </select>
                 <select class="sm-width"name="tipos" id="tipos" >
-                    <option value="">Tipo de Imóvel</option>
+                   
                     <?php
                                                             
                         $query = $pdo->query("SELECT * FROM tipos");
@@ -259,7 +261,7 @@ require_once('conexao.php');
                         $query = $pdo->query("SELECT * FROM imoveis");
                         $quartos = $query->fetchAll(PDO::FETCH_ASSOC);
                         foreach ( $quartos as $quarto) { ?>
-                            <option > <?php echo $quarto['quarto']?></option>
+                            <option > <?php echo $quarto['qtd_quartos']?></option>
                     <?php } ?>
                 </select>
                 <select class="sm-width" name="garagem" id="garagem" >
