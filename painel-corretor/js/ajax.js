@@ -76,7 +76,7 @@ function excluir(id){
                 listar();                
             } else {
                     $('#mensagem-excluir').addClass('text-danger')
-                    $('#mensagem-excluir').text(mensagem)
+                    $('#mensagem-excluir').html(mensagem)
                 }
 
         },      

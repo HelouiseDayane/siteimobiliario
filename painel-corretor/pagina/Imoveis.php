@@ -11,7 +11,11 @@ if(@$_SESSION['nivel'] != 'Administrador'){
  ?>
 
 
-  <button onclick="inserir()" type="button" class="btn btn-primary btn-flat btn-pri"><i class="fa fa-plus" aria-hidden="true"></i> Novo Imovel</button>
+  <button onclick="
+  		inserir();
+		$('#modalForm form input[type=file]').attr('required', true);
+		$('#modalForm form select option').removeAttr('selected');
+	" type="button" class="btn btn-primary btn-flat btn-pri"><i class="fa fa-plus" aria-hidden="true"></i> Novo Imovel</button>
 
 
  <div class="bs-example widget-shadow" style="padding:15px" id="listar">
@@ -46,8 +50,8 @@ if(@$_SESSION['nivel'] != 'Administrador'){
 							<div class="form-group"> 
 							<label>Tipo</label> 
 
-							<select select class="form-control" aria-label="Default select example"  name="imoveis_tipo" id="imoveis_tipo" required>
-							<option> Selecione</option>
+							<select select class="form-control required" aria-label="Default select example"  name="imoveis_tipo" id="imoveis_tipo" required>
+							<option disabled> Selecione</option>
 								<?php										
 								$query = $pdo->query("SELECT * FROM tipos");
 								$tipos = $query->fetchAll(PDO::FETCH_ASSOC);
@@ -63,8 +67,8 @@ if(@$_SESSION['nivel'] != 'Administrador'){
 							<div class="form-group"> 
 							<label>Cidade</label> 
 
-							<select select class="form-control" aria-label="Default select example"  name="cidade" id="cidade" required>
-							<option> Selecione</option>
+							<select select class="form-control required" aria-label="Default select example"  name="cidade" id="cidade" required>
+							<option disabled> Selecione</option>
 								<?php										
 								$query = $pdo->query("SELECT * FROM cidades");
 								$tipos = $query->fetchAll(PDO::FETCH_ASSOC);
@@ -81,7 +85,7 @@ if(@$_SESSION['nivel'] != 'Administrador'){
 							<div class="form-group"> 
 							<label>Padrão</label> 
 								</br>
-							<select select class="form-control" aria-label="Default select example" name="padrao" id="padrao" required>
+							<select select class="form-control required" aria-label="Default select example" name="padrao" id="padrao" required>
 									
 									<option> Alto</option>
 									<option> Médio</option>
@@ -94,7 +98,7 @@ if(@$_SESSION['nivel'] != 'Administrador'){
 							<div class="form-group"> 
 							<label>Ocasião</label> 
 								</br>
-							<select select class="form-control" aria-label="Default select example" name="ocasiao" id="ocasiao" required>
+							<select select class="form-control required" aria-label="Default select example" name="ocasiao" id="ocasiao" required>
 									
 									<option> Venda</option>
 									<option> Aluguel</option>
@@ -116,8 +120,8 @@ if(@$_SESSION['nivel'] != 'Administrador'){
 							<div class="form-group">
 							<label>Bairro</label> 
 								</br>
-							<select select  class="form-control" aria-label="Default select example"  name="imoveis_bairro" id="imoveis_bairro" required>
-							<option> Selecione</option>
+							<select select  class="form-control required" aria-label="Default select example"  name="imoveis_bairro" id="imoveis_bairro" required >
+							<option disabled> Selecione</option>
 							<?php
 																
 							$query = $pdo->query("SELECT * FROM bairros");
@@ -172,7 +176,7 @@ if(@$_SESSION['nivel'] != 'Administrador'){
 						<div class="col-md-12">						
 							<label>Fotos do Imovel</label> 
 							<div class="form-group"> 
-							<input name="foto[]" type="file" required multiple="multiple">
+							<input name="foto[]" type="file"accept=".png, .jpg, .jpeg" required multiple="multiple">
 							</div>	
 						</div>			
 

@@ -6,22 +6,24 @@ echo <<<HTML
 <small>
 HTML;
 
-$query = $pdo->query("SELECT imoveis.id id, 
-imoveis.titulo tit, 
-imoveis.imoveis_bairro bairro_id,
-imoveis.cidade_id cidade_id,
- imoveis.imoveis_tipo tipo_id, 
- imoveis.padrao pad,
- imoveis.qtd_quartos qtd,
- imoveis.valor val,
- imoveis.descricao descri,
- bairros.nome bai,
- bairros.id,
- tipos.id tipos_id, 
- tipos.tipo_imoveis tip,
- cidades.id, 
- cidades.nome cid,
- imoveis.ocasiao oca
+$query = $pdo->query("
+SELECT 
+	imoveis.id 					AS id, 
+	imoveis.titulo 				AS tit, 
+	imoveis.imoveis_bairro 		AS bairro_id,
+	imoveis.cidade_id 			AS cidade_id,
+	imoveis.imoveis_tipo 		AS tipo_id, 
+	imoveis.padrao 				AS pad,
+	imoveis.qtd_quartos 		AS qtd,
+	imoveis.valor 				AS val,
+	imoveis.descricao 			AS descri,
+	bairros.nome 				AS bai,
+	bairros.id 					AS bairros_id,
+	tipos.id 					AS tipos_id, 
+	tipos.tipo_imoveis 			AS tip,
+	cidades.id 					AS cidades_id, 
+	cidades.nome 				AS cid,
+	imoveis.ocasiao 			AS oca
  FROM $tabela
  inner join tipos on tipos.id = imoveis.imoveis_tipo 
  inner join bairros on bairros.id  = imoveis.imoveis_bairro
@@ -48,21 +50,21 @@ echo <<<HTML
 	<tbody>
 HTML;
 
-for($i=0; $i < $total_reg; $i++){
-	foreach ($res[$i] as $key => $value){}
-	$id = $res[$i]['id'];
-	$titulo = $res[$i]['tit'];
-	$tipos = $res[$i]['tip'];
-	$padrao = $res[$i]['pad'];
-	$bairro = $res[$i]['bai'];
-	$cidade = $res[$i]['cid'];
-	$qtd_quartos = $res[$i]['qtd'];
-	$ocasiao = $res[$i]['oca'];
-	$valor = $res[$i]['val'];
-	$descricao = $res[$i]['descri'];
-	$tipo_id = $res[$i]['tipo_id'];
-	$cidade_id = $res[$i]['cidade_id'];
-	$bairro_id = $res[$i]['bairro_id'];
+
+foreach($res as $key => $value){
+	$id = $value['id'];
+	$titulo = $value['tit'];
+	$tipos = $value['tip'];
+	$padrao = $value['pad'];
+	$bairro = $value['bai'];
+	$cidade = $value['cid'];
+	$qtd_quartos = $value['qtd'];
+	$ocasiao = $value['oca'];
+	$valor = $value['val'];
+	$descricao = $value['descri'];
+	$tipo_id = $value['tipo_id'];
+	$cidade_id = $value['cidade_id'];
+	$bairro_id = $value['bairro_id'];
 
 
 echo <<<HTML
@@ -85,12 +87,12 @@ echo <<<HTML
 
 
 		<li class="dropdown head-dpdn2" style="display: inline-block;">
-			<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><big><i class="fa fa-trash-o text-danger"></i></big></a>
+			<a href="#" title="{$id}" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><big><i class="fa fa-trash-o text-danger"></i></big></a>
 
 			<ul class="dropdown-menu" style="margin-left:-230px;">
 				<li>
 					<div class="notification_desc2">
-					<p>Confirmar Exclusão? <a href="#" onclick="excluir('{$id}')"><span class="text-danger">Sim</span></a></p>
+					<p>Confirmar Exclusão? <a href="#" onclick="excluir('{$id}')"><b class="text-danger" style="font-size:18px;padding-left:60px;">SIM</b></a></p>
 					</div>
 				</li>										
 			</ul>
@@ -136,16 +138,23 @@ HTML;
 		$('#tabela_filter label input').focus();
 	} );
 
-	function editar(id, titulo, tipo_id,bairro_id, cidade_id,padrao,  qtd_quartos,ocasiao, valor, descricao){
+	function editar(id, titulo, tipo_id, bairro_id, cidade_id, padrao, qtd_quartos, ocasiao, valor, descricao){
+
+		/*
+		console.log(
+			id, titulo, tipo_id, bairro_id, cidade_id, padrao, qtd_quartos, ocasiao, valor, descricao
+		);/**/
+		$('#modalForm form input[type=file]').removeAttr('required');
+		$('#modalForm form select option').removeAttr('selected');
 
 		$('#id').val(id);
 		$('#titulo').val(titulo);
-		$('#tipo_id').val(tipo_id);
-		$('#bairro_id').val(bairro_id);
-		$('#cidade_id').val(cidade_id);
-		$('#padrao').val(padrao);
+		$('#modalForm form #imoveis_tipo option[value='+tipo_id+']').attr('selected', true);
+		$('#modalForm form #cidade option[value='+cidade_id+']').attr('selected', true);
+		$('#modalForm form #padrao option[value='+padrao+']').attr('selected', true);
+		$('#modalForm form #ocasiao option[value='+ocasiao+']').attr('selected', true);
+		$('#modalForm form #imoveis_bairro option[value='+bairro_id+']').attr('selected', true);
 		$('#qtd_quartos').val(qtd_quartos);
-		$('#ocasiao').val(ocasiao);
 		$('#valor').val(valor);
 		$('#descricao').val(descricao);
 		$('#tituloModal').text('Editar Registro');
