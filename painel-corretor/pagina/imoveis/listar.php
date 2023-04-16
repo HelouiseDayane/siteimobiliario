@@ -43,7 +43,7 @@ echo <<<HTML
 	<th class="esc">Bairro</th>
 	<th class="esc">Cidade</th>	
 	<th class="">Quartos</th>	
-	<th class="">Garagem</th>
+
 	<th class="">Garagem</th>
 	<th class="esc">Ocasião</th>	
 	<th class="">Valor</th>	
@@ -65,6 +65,7 @@ foreach($res as $key => $value){
 	$ocasiao = $value['oca'];
 	$valor = $value['val'];
 	$descricao = $value['descri'];
+	$garagem = $value['garagem'];
 	$tipo_id = $value['tipo_id'];
 	$cidade_id = $value['cidade_id'];
 	$bairro_id = $value['bairro_id'];
@@ -79,8 +80,9 @@ echo <<<HTML
 		<td class="esc">{$tipos}</td>		
 		<td class="esc">{$bairro}</td>
 		<td class="esc">{$cidade}</td>
-		<td class="esc">{$garagem}</td>
+		
 		<td class="esc">{$qtd_quartos}</td>
+		<td class="esc">{$garagem}</td>
 		<td class="esc">{$ocasiao}</td>
 		<td class="esc">{$valor}</td>
 		
