@@ -15,11 +15,6 @@ SELECT
 	imoveis.imoveis_tipo 		AS tipo_id, 
 	imoveis.padrao 				AS pad,
 	imoveis.qtd_quartos 		AS qtd,
-<<<<<<< HEAD
-	imoveis.garagem				AS garagem,
-=======
-	imoveis.garagem      		AS garagem,
->>>>>>> 446799a31a3e39ab298afed255fdbc5cae1d4769
 	imoveis.valor 				AS val,
 	imoveis.descricao 			AS descri,
 	bairros.nome 				AS bai,
@@ -47,11 +42,6 @@ echo <<<HTML
 	<th class="esc">Bairro</th>
 	<th class="esc">Cidade</th>	
 	<th class="">Quartos</th>	
-<<<<<<< HEAD
-	<th class="">Garagem</th>
-=======
-	<th class="">Garagem</th>	
->>>>>>> 446799a31a3e39ab298afed255fdbc5cae1d4769
 	<th class="esc">Ocasião</th>	
 	<th class="">Valor</th>	
 	<th>Ações</th>
@@ -69,7 +59,6 @@ foreach($res as $key => $value){
 	$bairro = $value['bai'];
 	$cidade = $value['cid'];
 	$qtd_quartos = $value['qtd'];
-	$garagem = $value['garagem'];
 	$ocasiao = $value['oca'];
 	$valor = $value['val'];
 	$descricao = $value['descri'];
@@ -88,12 +77,11 @@ echo <<<HTML
 		<td class="esc">{$bairro}</td>
 		<td class="esc">{$cidade}</td>
 		<td class="esc">{$qtd_quartos}</td>
-		<td class="esc">{$garagem}</td>
 		<td class="esc">{$ocasiao}</td>
 		<td class="esc">{$valor}</td>
 		
 		<td>
-		<big><a href="#" onclick="editar('{$id}', '{$titulo}', '{$tipo_id}','{$bairro_id}','{$cidade_id}','{$padrao}','{$qtd_quartos}','{$ocasiao}','{$valor}','{$descricao}','{$garagem}')" title="Editar Dados"><i class="fa fa-edit text-primary"></i></a></big>
+		<big><a href="#" onclick="editar('{$id}', '{$titulo}', '{$tipo_id}','{$bairro_id}','{$cidade_id}','{$padrao}','{$qtd_quartos}','{$ocasiao}','{$valor}','{$descricao}')" title="Editar Dados"><i class="fa fa-edit text-primary"></i></a></big>
 
 	
 
@@ -150,11 +138,11 @@ HTML;
 		$('#tabela_filter label input').focus();
 	} );
 
-	function editar(id, titulo, tipo_id, bairro_id, cidade_id, padrao, qtd_quartos, ocasiao, valor, descricao, garagem){
+	function editar(id, titulo, tipo_id, bairro_id, cidade_id, padrao, qtd_quartos, ocasiao, valor, descricao){
 
 		/*
 		console.log(
-			id, titulo, tipo_id, bairro_id, cidade_id, padrao, qtd_quartos, ocasiao, valor, descricao,  garagem
+			id, titulo, tipo_id, bairro_id, cidade_id, padrao, qtd_quartos, ocasiao, valor, descricao
 		);/**/
 		$('#modalForm form input[type=file]').removeAttr('required');
 		$('#modalForm form select option').removeAttr('selected');
@@ -166,9 +154,7 @@ HTML;
 		$('#modalForm form #padrao option[value='+padrao+']').attr('selected', true);
 		$('#modalForm form #ocasiao option[value='+ocasiao+']').attr('selected', true);
 		$('#modalForm form #imoveis_bairro option[value='+bairro_id+']').attr('selected', true);
-		$('#modalForm form #garagem option[value='+garagem+']').attr('selected', true);
 		$('#qtd_quartos').val(qtd_quartos);
-		$('#modalForm form #garagem option[value='+garagem+']').attr('selected', true);
 		$('#valor').val(valor);
 		$('#descricao').val(descricao);
 		$('#tituloModal').text('Editar Registro');

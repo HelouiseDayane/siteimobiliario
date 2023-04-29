@@ -8,7 +8,6 @@ $padrao = $_POST['padrao'];
 $imoveis_bairro = $_POST['imoveis_bairro'];
 $valor = $_POST['valor'];
 $qtd_quartos = $_POST['qtd_quartos'];
-$garagem = $_POST['garagem'];
 $ocasiao = $_POST['ocasiao'];
 $descricao = $_POST['descricao'];
 $cidade = $_POST['cidade'];
@@ -20,7 +19,7 @@ $id = $_POST['id'];
 
 if($id == ""){
 
-	$query = $pdo->prepare("INSERT INTO $tabela SET titulo = :titulo, imoveis_tipo = :imoveis_tipo, padrao = :padrao, imoveis_bairro = :imoveis_bairro, valor = :valor,  qtd_quartos = :qtd_quartos, ocasiao = :ocasiao,  descricao = :descricao, cidade_id = :cidade_id, garagem = :garagem");
+	$query = $pdo->prepare("INSERT INTO $tabela SET titulo = :titulo, imoveis_tipo = :imoveis_tipo, padrao = :padrao, imoveis_bairro = :imoveis_bairro, valor = :valor,  qtd_quartos = :qtd_quartos, ocasiao = :ocasiao,  descricao = :descricao, cidade_id = :cidade_id");
 	$query->bindValue(":titulo", "$titulo");
 	$query->bindValue(":imoveis_tipo", "$imoveis_tipo");
 	$query->bindValue(":padrao", "$padrao");
@@ -30,7 +29,6 @@ if($id == ""){
 	$query->bindValue(":ocasiao", "$ocasiao");
 	$query->bindValue(":descricao", "$descricao");
 	$query->bindValue(":cidade_id", "$cidade");
-	$query->bindValue(":garagem", "$garagem");
 	$query->execute();
 	$ult_id = $pdo->lastInsertId();
 
@@ -71,7 +69,6 @@ if($id == ""){
 			ocasiao 			= :ocasiao, 
 			descricao 			= :descricao, 
 			cidade_id 			= :cidade_id 
-			garagem				= :garagem
 		WHERE 
 			id = :id";
 		$query = $pdo->prepare($_SQL);
@@ -84,7 +81,6 @@ if($id == ""){
 			$query->bindValue(":ocasiao", "{$ocasiao}");
 			$query->bindValue(":descricao", "{$descricao}");
 			$query->bindValue(":cidade_id", "{$cidade}");
-			$query->bindValue(":garagem", "$garagem");
 			$query->bindValue(":id", "{$id}");
 		$query->execute();
 
