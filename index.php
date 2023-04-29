@@ -1,5 +1,18 @@
 <?php
 require_once('conexao.php');
+
+        //*-- -------------------------------------------------------
+        //-- lista de imoveis
+        //-- --------------------------------------------------------
+        //-- --------------------------------------
+        $sql = "SELECT * FROM `imoveis`;";
+        $statment = $pdo->prepare($sql); $statment->execute(); 
+        $IMOVEIS_DB = $statment->fetchAll(PDO::FETCH_ASSOC);
+        //FOREACH($IMOVEIS_DB as $LIST_IEM):            echo "{$LIST_IEM['titulo']} \r\n";      ENDFOREACH;
+        //while($n_contrato = $statment->fetch(PDO::FETCH_ASSOC)){          echo $n_contrato['titulo'] . "\r\n";         }
+        //echo "IMOVEIS: ";print_r($IMOVEIS_DB); echo "\r\n-------------------------------------\r\n";
+        //-- -------------------------------------- /**/
+
 ?>
 <!doctype html>
 <html lang="pt-br">
@@ -111,6 +124,37 @@ require_once('conexao.php');
     <section class="hero-section">
     <div class="container">
         <div class="hs-slider owl-carousel">
+            <?
+        FOREACH($IMOVEIS_DB as $ATRIBUTO):        
+            echo "
+
+            <div class=\"hs-item set-bg\" data-setbg=\"img/hero/hero-1.jpg\">
+                <div class=\"row\">
+                    <div class=\"col-lg-12\">
+                        <div class=\"hc-inner-text\">
+                            <div class=\"hc-text\">
+                                <h4>{$ATRIBUTO['id']} {$ATRIBUTO['titulo']} - NOVO PREDIO COM 15 ANDARES</h4>
+                                <p><span class=\"icon_pin_alt\"></span> Local do Imóvel</p>
+                                <div class=\"label\">Comprar</div>
+                                <h5>R$ 500.000,00<span>/Mês</span></h5>
+                            </div>
+                            <div class=\"hc-widget\">
+                                <ul>
+                                    <li><i class=\"fa fa-object-group\"></i> 380m²</li>
+                                    <li><i class=\"fa fa-bathtub\"></i> 03</li>
+                                    <li><i class=\"fa fa-bed\"></i> 05</li>
+                                    <li><i class=\"fa fa-automobile\"></i> 01</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            ";
+        ENDFOREACH;
+
+            ?>
             <div class="hs-item set-bg" data-setbg="img/hero/hero-1.jpg">
                 <div class="row">
                     <div class="col-lg-12">
@@ -188,7 +232,7 @@ require_once('conexao.php');
     
  
         <div class="search-form-content">
-        <form action="./sitefront/querys.php" method="get" class="filter-form">
+        <form action="./sitefront/property.php" method="get" class="filter-form">
             <div class="row">
             <div class="col-lg-6">
                 <div class="section-title">
