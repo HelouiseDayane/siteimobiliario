@@ -1,6 +1,6 @@
 <?php
-require_once('conexao.php');
-
+require_once('../conexao.php');
+include '../query_imoveis.php'; 
 ?>
 <!doctype html>
 <html lang="pt-br">
@@ -69,7 +69,7 @@ require_once('conexao.php');
                                 <!--li><i class="icon_mail_alt"></i> Aler.support@gmail.com</li>
                                 <li><i class="fa fa-mobile-phone"></i> 125-711-811 <span>125-668-886</span></li-->
                             </ul>
-                            <a href="login.php" class="hw-btn">ADICIONAR IMÓVEL</a>
+                            <a href="../login.php" class="hw-btn">ADICIONAR IMÓVEL</a>
                         </div>
                     </div>
                 </div>
@@ -109,7 +109,6 @@ require_once('conexao.php');
                 <div class="col-lg-12">
                     <div class="breadcrumb-text">
                         <h4>Imóveis</h4>
-                        <div class="bt-option">
                             <a href="../index.php"><i class="fa fa-home"></i> Home</a>
                             <span>Imóveis</span>
                         </div>
@@ -131,80 +130,29 @@ require_once('conexao.php');
                 </div>
             </div>
             <div class="row">
-            <?php
-            $sql = "
-            SELECT 
-               
-                imoveis.titulo 				AS tit, 
-                imoveis.padrao 				AS pad,
-                imoveis.qtd_quartos 		AS qtd,
-                imoveis.garagem      		AS garagem,
-                imoveis.valor 				AS val,
-                imoveis.descricao 			AS descri,
-                bairros.nome 				AS bai,
-                tipos.tipo_imoveis 			AS tip,
-                cidades.nome 				AS cid,
-                imoveis.ocasiao 			AS oca
-             FROM imoveis
-             inner join tipos on tipos.id = imoveis.imoveis_tipo 
-             inner join bairros on bairros.id  = imoveis.imoveis_bairro
-             inner join cidades on cidades.id = imoveis.cidade_id
-             WHERE 1=1";
-                if(!empty($_GET['cidade'])){
-                    $cidade = $_GET['cidade'];
-                    $sql.= "AND cid = '$cidade'";
-                }
-                if(!empty($_GET['bairro'])){
-                    $bairro = $_GET['bairro'];
-                    $sql.= "AND bai = '$bairro'";
-                }
-                if(!empty($_GET['ocasiao'])){
-                    $ocasiao = $_GET['ocasiao'];
-                    $sql.= "AND ocar = '$bairro'";
-                }
-                if(!empty($_GET['padrao'])){
-                    $padrao = $_GET['padrao'];
-                    $sql.= "AND pad = '$padrao'";
-                }
-                if(!empty($_GET['tipos'])){
-                    $tipos = $_GET['tipos'];
-                    $sql.= "AND tip = '$tipos'";
-                }
-                if(!empty($_GET['qtd_quartos'])){
-                    $quartos = $_GET['qtd_quartos'];
-                    $sql.= "AND qtd = '$quartos'";
-                }
-                if(!empty($_GET['garagem'])){
-                    $garagem = $_GET['garagem'];
-                    $sql.= "AND garagem = '$garagem'";
-                }
-               
-            $imoveis = $conn->query($sql);
-            $resultados = $imoveis->fetchAll(PDO::FETCH_ASSOC);
-                foreach ($resultados as $resultado){
-
-            ?>
-      
-                <div class="col-lg-4 col-md-6">
-                    <div class="property-item">
-                        <div class="pi-pic set-bg" data-setbg="img/property/property-2.jpg">
-                            <div class="label c-red"> <?php echo $resultado['cid']?></div>
-                        </div>
-                        <div class="pi-text">
-                            <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
-                            <div class="pt-price"> <?php echo $resultado['oca']?></div>
-                            <h5><a href="#"> <?php echo $resultado['val']?></a></h5>
-                            <p><span class="icon_pin_alt"></span> <?php echo $resultado['bai']?></p>
-                            <ul>
-                               
-                                <li><i class="fa fa-bed"></i>  <?php echo $resultado['qtd']?></li>
-                                <li><i class="fa fa-automobile"></i>  <?php echo $resultado['garagem']?></li>
-                            </ul>
-                            
+     
+                    <div class="col-lg-4 col-md-6">
+                        <?php foreach ($resultados as $resultado){ ?>
+                        <div class="property-item">
+                            <div class="pi-pic set-bg" data-setbg="img/property/property-2.jpg">
+                                <div class="label c-red"> <?php echo $resultado['cid']?></div>
+                            </div>
+                            <div class="pi-text">
+                                <div class="label c-red"> <?php echo $resultado['cid']?></div>
+                                <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
+                                <div class="pt-price"> <?php echo $resultado['oca']?></div>
+                                <h5><a href="#"> <?php echo $resultado['val']?></a></h5>
+                                <p><span class="icon_pin_alt"></span> <?php echo $resultado['bai']?></p>
+                                <ul>
+                                    <li><i class="fa fa-bed"></i>  <?php echo $resultado['qtd']?></li>
+                                    <li><i class="fa fa-automobile"></i>  <?php echo $resultado['garagem']?></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <?php } ?>
+                <?php
+                }
+                ?>
             </div>
         </div>
     </section>
