@@ -15,7 +15,7 @@ SELECT
 	imoveis.imoveis_tipo 		AS tipo_id, 
 	imoveis.padrao 				AS pad,
 	imoveis.qtd_quartos 		AS qtd,
-	imoveis.garagem      		AS garagem,
+	imoveis.garagem		 		AS garagem,
 	imoveis.valor 				AS val,
 	imoveis.descricao 			AS descri,
 	bairros.nome 				AS bai,
@@ -26,8 +26,8 @@ SELECT
 	cidades.nome 				AS cid,
 	imoveis.ocasiao 			AS oca
  FROM $tabela
- left join tipos on tipos.id = imoveis.imoveis_tipo 
- inner join bairros on bairros.id  = imoveis.imoveis_bairro
+ inner join tipos on tipos.id = imoveis.imoveis_tipo 
+ left join bairros on bairros.id  = imoveis.imoveis_bairro
  inner join cidades on cidades.id = imoveis.cidade_id
 ORDER BY imoveis.id desc");
 $res = $query->fetchAll(PDO::FETCH_ASSOC);
@@ -146,7 +146,7 @@ HTML;
 
 		/*
 		console.log(
-			id, titulo, tipo_id, bairro_id, cidade_id, padrao, qtd_quartos, ocasiao, valor, descricao,  garagem
+			id, titulo, tipo_id, bairro_id, cidade_id, padrao, qtd_quartos, ocasiao, valor, descricao
 		);/**/
 		$('#modalForm form input[type=file]').removeAttr('required');
 		$('#modalForm form select option').removeAttr('selected');
@@ -158,8 +158,8 @@ HTML;
 		$('#modalForm form #padrao option[value='+padrao+']').attr('selected', true);
 		$('#modalForm form #ocasiao option[value='+ocasiao+']').attr('selected', true);
 		$('#modalForm form #imoveis_bairro option[value='+bairro_id+']').attr('selected', true);
-		$('#modalForm form #garagem option[value='+garagem+']').attr('selected', true);
 		$('#qtd_quartos').val(qtd_quartos);
+		$('#qtd_quartos').val(garagem);
 		$('#valor').val(valor);
 		$('#descricao').val(descricao);
 		$('#tituloModal').text('Editar Registro');
