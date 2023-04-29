@@ -179,7 +179,7 @@ require_once('conexao.php');
             </div>
         </div>
     </div>
-</section>
+    </section>
 <!-- Final do Slideshow -->
 
 <!--Filtro por Imóveis -->
@@ -188,7 +188,7 @@ require_once('conexao.php');
     
  
         <div class="search-form-content">
-        <form action="./sitefront/property.php" method="get" class="filter-form">
+        <form action="./sitefront/querys.php" method="get" class="filter-form">
             <div class="row">
             <div class="col-lg-6">
                 <div class="section-title">
