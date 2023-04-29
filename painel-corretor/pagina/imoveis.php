@@ -138,17 +138,17 @@ if(@$_SESSION['nivel'] != 'Administrador'){
 							<div class="form-group"> 
 							<label>Quartos</label> 
 								</br>
-							<select select class="form-control required" aria-label="Default select example" name="qtd_quartos" id="qtd_quartos" required>
+							<select select class="form-control required" aria-label="Default select example" name="qtd__quartos" id="qtd_quartos" required>
 									
 									<option> 1</option>
 									<option> 2</option>
 									<option> 3</option>
 									<option> 4</option>
-									<option> 5+</option>
+									<option>5+</option>
 								</select>
 							</div>						
-					</div>
-					<div class="col-md-2">						
+						</div>
+						<div class="col-md-2">						
 							<div class="form-group"> 
 							<label>Garagem</label> 
 								</br>
@@ -158,11 +158,10 @@ if(@$_SESSION['nivel'] != 'Administrador'){
 									<option> 2</option>
 									<option> 3</option>
 									<option> 4</option>
-									<option> 5+</option>
+									<option>5+</option>
 								</select>
 							</div>						
-					</div>
-
+						</div>
 					<div class="col-md-2">						
 							<div class="form-group"> 
 							<label for="dinheiro">Valor</label>
