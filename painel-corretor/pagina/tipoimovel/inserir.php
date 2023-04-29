@@ -31,8 +31,12 @@ $query->execute();
 
 }
 
-
-
-echo 'Salvo com Sucesso';
+echo 'Salvo com Sucesso 
+		<SCRIPT> 
+			$(\'#modalForm form\')[0].reset();   
+			listar(); 
+			$(\'#modalForm\').modal(\'hide\');
+		</SCRIPT>
+';
 
  ?>

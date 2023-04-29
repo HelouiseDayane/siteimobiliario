@@ -15,7 +15,11 @@ SELECT
 	imoveis.imoveis_tipo 		AS tipo_id, 
 	imoveis.padrao 				AS pad,
 	imoveis.qtd_quartos 		AS qtd,
+<<<<<<< HEAD
 	imoveis.garagem				AS garagem,
+=======
+	imoveis.garagem      		AS garagem,
+>>>>>>> 446799a31a3e39ab298afed255fdbc5cae1d4769
 	imoveis.valor 				AS val,
 	imoveis.descricao 			AS descri,
 	bairros.nome 				AS bai,
@@ -26,9 +30,9 @@ SELECT
 	cidades.nome 				AS cid,
 	imoveis.ocasiao 			AS oca
  FROM $tabela
-	 LEFT JOIN tipos on tipos.id = imoveis.imoveis_tipo 
-	 LEFT JOIN bairros on bairros.id  = imoveis.imoveis_bairro
-	 LEFT JOIN cidades on cidades.id = imoveis.cidade_id
+ inner join tipos on tipos.id = imoveis.imoveis_tipo 
+ inner join bairros on bairros.id  = imoveis.imoveis_bairro
+ inner join cidades on cidades.id = imoveis.cidade_id
 ORDER BY imoveis.id desc");
 $res = $query->fetchAll(PDO::FETCH_ASSOC);
 $total_reg = @count($res);
@@ -43,7 +47,11 @@ echo <<<HTML
 	<th class="esc">Bairro</th>
 	<th class="esc">Cidade</th>	
 	<th class="">Quartos</th>	
+<<<<<<< HEAD
 	<th class="">Garagem</th>
+=======
+	<th class="">Garagem</th>	
+>>>>>>> 446799a31a3e39ab298afed255fdbc5cae1d4769
 	<th class="esc">Ocasião</th>	
 	<th class="">Valor</th>	
 	<th>Ações</th>
@@ -85,7 +93,7 @@ echo <<<HTML
 		<td class="esc">{$valor}</td>
 		
 		<td>
-		<big><a href="#" onclick="editar('{$id}', '{$titulo}', '{$tipo_id}','{$bairro_id}','{$cidade_id}','{$padrao}','{$qtd_quartos}','{$ocasiao}','{$valor}','{$descricao}')" title="Editar Dados"><i class="fa fa-edit text-primary"></i></a></big>
+		<big><a href="#" onclick="editar('{$id}', '{$titulo}', '{$tipo_id}','{$bairro_id}','{$cidade_id}','{$padrao}','{$qtd_quartos}','{$ocasiao}','{$valor}','{$descricao}','{$garagem}')" title="Editar Dados"><i class="fa fa-edit text-primary"></i></a></big>
 
 	
 
@@ -146,7 +154,7 @@ HTML;
 
 		/*
 		console.log(
-			id, titulo, tipo_id, bairro_id, cidade_id, padrao, qtd_quartos, ocasiao, valor, descricao
+			id, titulo, tipo_id, bairro_id, cidade_id, padrao, qtd_quartos, ocasiao, valor, descricao,  garagem
 		);/**/
 		$('#modalForm form input[type=file]').removeAttr('required');
 		$('#modalForm form select option').removeAttr('selected');
@@ -158,6 +166,7 @@ HTML;
 		$('#modalForm form #padrao option[value='+padrao+']').attr('selected', true);
 		$('#modalForm form #ocasiao option[value='+ocasiao+']').attr('selected', true);
 		$('#modalForm form #imoveis_bairro option[value='+bairro_id+']').attr('selected', true);
+		$('#modalForm form #garagem option[value='+garagem+']').attr('selected', true);
 		$('#qtd_quartos').val(qtd_quartos);
 		$('#modalForm form #garagem option[value='+garagem+']').attr('selected', true);
 		$('#valor').val(valor);
