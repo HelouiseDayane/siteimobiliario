@@ -26,7 +26,7 @@ SELECT
 	cidades.nome 				AS cid,
 	imoveis.ocasiao 			AS oca
  FROM $tabela
- inner join tipos on tipos.id = imoveis.imoveis_tipo 
+ left join tipos on tipos.id = imoveis.imoveis_tipo 
  inner join bairros on bairros.id  = imoveis.imoveis_bairro
  inner join cidades on cidades.id = imoveis.cidade_id
 ORDER BY imoveis.id desc");
