@@ -15,6 +15,7 @@ SELECT
 	imoveis.imoveis_tipo 		AS tipo_id, 
 	imoveis.padrao 				AS pad,
 	imoveis.qtd_quartos 		AS qtd,
+	imoveis.garagem				AS garagem,
 	imoveis.valor 				AS val,
 	imoveis.descricao 			AS descri,
 	bairros.nome 				AS bai,
@@ -42,6 +43,7 @@ echo <<<HTML
 	<th class="esc">Bairro</th>
 	<th class="esc">Cidade</th>	
 	<th class="">Quartos</th>	
+	<th class="">Garagem</th>
 	<th class="esc">Ocasião</th>	
 	<th class="">Valor</th>	
 	<th>Ações</th>
@@ -59,6 +61,7 @@ foreach($res as $key => $value){
 	$bairro = $value['bai'];
 	$cidade = $value['cid'];
 	$qtd_quartos = $value['qtd'];
+	$garagem = $value['garagem'];
 	$ocasiao = $value['oca'];
 	$valor = $value['val'];
 	$descricao = $value['descri'];
@@ -77,6 +80,7 @@ echo <<<HTML
 		<td class="esc">{$bairro}</td>
 		<td class="esc">{$cidade}</td>
 		<td class="esc">{$qtd_quartos}</td>
+		<td class="esc">{$garagem}</td>
 		<td class="esc">{$ocasiao}</td>
 		<td class="esc">{$valor}</td>
 		
@@ -138,7 +142,7 @@ HTML;
 		$('#tabela_filter label input').focus();
 	} );
 
-	function editar(id, titulo, tipo_id, bairro_id, cidade_id, padrao, qtd_quartos, ocasiao, valor, descricao){
+	function editar(id, titulo, tipo_id, bairro_id, cidade_id, padrao, qtd_quartos, ocasiao, valor, descricao, garagem){
 
 		/*
 		console.log(
@@ -155,6 +159,7 @@ HTML;
 		$('#modalForm form #ocasiao option[value='+ocasiao+']').attr('selected', true);
 		$('#modalForm form #imoveis_bairro option[value='+bairro_id+']').attr('selected', true);
 		$('#qtd_quartos').val(qtd_quartos);
+		$('#modalForm form #garagem option[value='+garagem+']').attr('selected', true);
 		$('#valor').val(valor);
 		$('#descricao').val(descricao);
 		$('#tituloModal').text('Editar Registro');

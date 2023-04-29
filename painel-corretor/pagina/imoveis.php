@@ -134,12 +134,34 @@ if(@$_SESSION['nivel'] != 'Administrador'){
 						</div>
 
 
-					<div class="col-md-4">
-						<div class="form-group"> 
-							<label>Quantidade de Quartos</label> 
-							<input type="text" class="form-control" name="qtd_quartos" id="qtd_quartos" required > 
+						<div class="col-md-2">						
+							<div class="form-group"> 
+							<label>Quartos</label> 
+								</br>
+							<select select class="form-control required" aria-label="Default select example" name="qtd__quartos" id="qtd_quartos" required>
+									
+									<option> 1</option>
+									<option> 2</option>
+									<option> 3</option>
+									<option> 4</option>
+									<option>5+</option>
+								</select>
+							</div>						
 						</div>
-					</div>	
+						<div class="col-md-2">						
+							<div class="form-group"> 
+							<label>Garagem</label> 
+								</br>
+							<select select class="form-control required" aria-label="Default select example" name="garagem" id="garagem" required>
+									
+									<option> 1</option>
+									<option> 2</option>
+									<option> 3</option>
+									<option> 4</option>
+									<option>5+</option>
+								</select>
+							</div>						
+						</div>
 					<div class="col-md-2">						
 							<div class="form-group"> 
 							<label for="dinheiro">Valor</label>
