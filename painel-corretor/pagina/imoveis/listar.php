@@ -15,7 +15,11 @@ SELECT
 	imoveis.imoveis_tipo 		AS tipo_id, 
 	imoveis.padrao 				AS pad,
 	imoveis.qtd_quartos 		AS qtd,
+<<<<<<< HEAD
+	imoveis.garagem				AS garagem,
+=======
 	imoveis.garagem      		AS garagem,
+>>>>>>> 446799a31a3e39ab298afed255fdbc5cae1d4769
 	imoveis.valor 				AS val,
 	imoveis.descricao 			AS descri,
 	bairros.nome 				AS bai,
@@ -43,7 +47,11 @@ echo <<<HTML
 	<th class="esc">Bairro</th>
 	<th class="esc">Cidade</th>	
 	<th class="">Quartos</th>	
+<<<<<<< HEAD
+	<th class="">Garagem</th>
+=======
 	<th class="">Garagem</th>	
+>>>>>>> 446799a31a3e39ab298afed255fdbc5cae1d4769
 	<th class="esc">Ocasião</th>	
 	<th class="">Valor</th>	
 	<th>Ações</th>
@@ -160,6 +168,7 @@ HTML;
 		$('#modalForm form #imoveis_bairro option[value='+bairro_id+']').attr('selected', true);
 		$('#modalForm form #garagem option[value='+garagem+']').attr('selected', true);
 		$('#qtd_quartos').val(qtd_quartos);
+		$('#modalForm form #garagem option[value='+garagem+']').attr('selected', true);
 		$('#valor').val(valor);
 		$('#descricao').val(descricao);
 		$('#tituloModal').text('Editar Registro');
